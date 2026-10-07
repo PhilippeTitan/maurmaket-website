@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "homeTitle": "MaurMaket — Achte ak vann nan tout Ayiti",
+    "homeDesc": "MaurMaket se aplikasyon mache ayisyen an. Gade lis yo, pale ak vandè yo, peye ak MonCash oswa NatCash, epi rankontre an sekirite pou fè echanj lan.",
+    "aboutTitle": "Sou MaurMaket",
+    "aboutDesc": "Poukisa n ap bati yon mache konfyans pou Ayiti.",
+    "notFoundTitle": "Paj pa jwenn",
+    "notFoundDesc": "Paj ou ap chèche a pa egziste, oswa lyen an chanje."
+  },
+  "header": {
+    "navAbout": "Sou nou",
+    "navTerms": "Kondisyon",
+    "navPrivacy": "Konfidansyalite",
+    "getTheApp": "Telechaje app la",
+    "langSwitch": "Chanje lang",
+    "homeLink": "Aksè MaurMaket"
+  },
+  "hero": {
+    "badge": "Fèt an Ayiti",
+    "title": "Achte ak vann nan tout Ayiti",
+    "lead": "MaurMaket pote mache ayisyen an sou entènèt. Jwenn sa ou bezwen, pale dirèk ak vandè yo, peye an sekirite ak MonCash oswa NatCash, epi rankontre pou fè echanj lan — tout sa a nan yon sèl app, an kreyòl, franse oswa anglè.",
+    "ctaPrimary": "Telechaje app la",
+    "ctaSecondary": "Kijan li mache"
+  },
+  "features": {
+    "heading": "Poukisa MaurMaket",
+    "sub": "Tout sa mache a fè deja — ofisyèl, an sekirite, e senp.",
+    "f1Title": "Kominike ak negosye",
+    "f1Body": "Voye mesaj bay vandè yo, pataje foto, epi dakò sou yon pri — jan negosyasyon yo deja mache, san ou pa kite app la.",
+    "f2Title": "Peye jan ou vle",
+    "f2Body": "Peye lè ou achte a ak MonCash, oswa peye vandè a dirèk ak NatCash lè ou rankontre li. Pa gen chach pou lajan kach, pa gen sipriz.",
+    "f3Title": "Rankontre an sekirite",
+    "f3Body": "Akòde yon kote ak yon lè, enskri ou lè ou rive, epi konfime echanj lan ak yon kòd."
+  },
+  "steps": {
+    "heading": "Kijan li mache",
+    "sub": "Twa etap, depi gade jiskaske w resevwa.",
+    "s1Title": "Gade oswa mete an vant",
+    "s1Body": "Dè milye lis pou dekouvri, oswa louvri pwòp boutik ou nan kèk minit — gratis pou kòmanse.",
+    "s2Title": "Kominike ak dakò",
+    "s2Body": "Pale dirèk ak lòt pati a, negosye pri a ak detay randevou a.",
+    "s3Title": "Peye ak fè echanj",
+    "s3Body": "Peye ak MonCash oswa NatCash, rankontre nan kote ki dakò, epi konfime remèt la."
+  },
+  "download": {
+    "heading": "Telechaje app la",
+    "sub": "MaurMaket ap rive sou Android anvan.",
+    "status": "Ap vini byento",
+    "statusNote": "APK MaurMaket a poko disponib. Lyen telechaje a ap parèt isit lè premye vèsyon an soti.",
+    "paymentsTitle": "Peye jan ou vle",
+    "paymentsNote": "MonCash ak NatCash disponib lè ou achte e lè ou rankontre.",
+    "supportTitle": "Gen yon kesyon anvan lansman an?",
+    "supportBody": "Support ap fèt dirèk sou sit sa a. Sant èd ak swiv ka yo ap louvri byento."
+  },
+  "about": {
+    "heading": "Sou MaurMaket",
+    "lead": "Nan Ayiti, komès la viv nan gwoup mesaj, sou trotwa, ak nan mache. MaurMaket bay enèji sa a yon kay vrè: yon mache konsewi pou jan Ayiti achte ak vann vrèman.",
+    "s1Title": "Fèt pou Ayiti",
+    "s1Body": "Kreyòl, franse ak anglè depi jou a. Pri an goude. Randevou kote nou rankontre vrèman.",
+    "s2Title": "Konfyans ou ka wè",
+    "s2Body": "Vandè verifye, avi piblik sou achte ki fini, ak istwa kòmand ki swiv chak kont.",
+    "s3Title": "Tout nan menm kote a",
+    "s3Body": "Mesaj, ofri, foto, peyman ak randevou rete nan app la — pa bezwen kouri dèyè yon vandè nan senk gwoup diferan.",
+    "valuesHeading": "Sa nou kwè",
+    "v1Title": "Lajan ou tann bagay la",
+    "v1Body": "Peyman MonCash yo kenbe jiskaske echanj lan konfime, pou achte ak vandè rankontre sou menm pye.",
+    "v2Title": "Piti vandè yo anvan",
+    "v2Body": "Gratis pou kòmanse, fr klè, e peman dirèk sou MonCash ou.",
+    "v3Title": "Sekirite anvan vitès",
+    "v3Body": "Enskripsyon randevou, zouti pou rapòte, ak revizyon moun lè gen pwoblèm.",
+    "ctaTitle": "Lè ou pare",
+    "ctaBody": "Premye vèsyon an prèske la. Lyen telechaje a ap parèt sou paj sa a.",
+    "ctaLabel": "Telechaje app la"
+  },
+  "footer": {
+    "tagline": "App mache Ayiti a.",
+    "productCol": "Pwodwi",
+    "legalCol": "Legal",
+    "contactCol": "Kontak",
+    "contactNote": "Support ap vini sou sit sa a.",
+    "about": "Sou nou",
+    "terms": "Kondisyon Itilizasyon",
+    "privacy": "Politik Konfidansyalite",
+    "getTheApp": "Telechaje app la",
+    "rights": "© 2026 MaurMaket. Tout dwa rezève."
+  },
+  "legal": {
+    "backHome": "Retounen lakay",
+    "lastUpdated": "Dènye mizajou",
+    "version": "Vèsyon",
+    "materialBadge": "Chanjman enpòtan",
+    "availableIn": "Disponib tou nan:",
+    "notPublished": "Dokiman sa a ap pibliye. Tounen byento."
+  },
+  "notFound": {
+    "title": "Paj pa jwenn",
+    "body": "Paj ou ap chèche a pa egziste, oswa lyen an chanje.",
+    "cta": "Ale sou paj prensipal la"
+  }
+}

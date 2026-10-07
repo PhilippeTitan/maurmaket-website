@@ -1,0 +1,118 @@
+---
+import '../styles/global.css';
+import { getStrings, isLocale, localePath, type Locale } from '../i18n';
+import policyMeta from '../generated/policy-meta.json';
+
+interface Props {
+  locale: Locale;
+  page: 'home' | 'about' | 'terms' | 'privacy' | 'notFound';
+}
+
+const { locale, page } = Astro.props;
+const t = getStrings(locale);
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://maurmaket.netlify.app');
+const homePath = localePath(locale, '/');
+
+let title = t.meta.homeTitle;
+let description = t.meta.homeDesc;
+if (page === 'about') {
+  title = t.meta.aboutTitle;
+  description = t.meta.aboutDesc;
+} else if (page === 'notFound') {
+  title = t.meta.notFoundTitle;
+  description = t.meta.notFoundDesc;
+} else if (page === 'terms' || page === 'privacy') {
+  const entry = policyMeta.policies?.[page]?.locales?.[locale];
+  title = entry?.title ?? t.meta.homeTitle;
+  description = entry?.summary ?? t.meta.homeDesc;
+}
+
+const alternates: { code: Locale; path: string }[] = [];
+for (const code of ['en', 'fr', 'ht'] as const) {
+  const suffix =
+    page === 'home' ? '/' : page === 'about' ? '/about/' : page === 'terms' ? '/legal/terms/' : page === 'privacy' ? '/legal/privacy/' : '/';
+  if (isLocale(code)) alternates.push({ code, path: localePath(code, suffix) });
+}
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical.href} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href={canonical.href} />
+    {page !== 'notFound' &&
+      alternates.map(({ code, path }) => (
+        <link rel="alternate" hreflang={code} href={new URL(path, canonical.origin).href} />
+      ))}
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <a class="wordmark" href={homePath} aria-label={`MaurMaket — ${t.header.homeLink}`}>
+          Mau<span>r</span>Maket
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href={localePath(locale, '/about/')}>{t.header.navAbout}</a>
+          <a href={localePath(locale, '/legal/terms/')}>{t.header.navTerms}</a>
+          <a href={localePath(locale, '/legal/privacy/')}>{t.header.navPrivacy}</a>
+          <a class="nav-cta" href={`${homePath}#get-app`}>{t.header.getTheApp}</a>
+          <span class="lang-switch" role="group" aria-label={t.header.langSwitch}>
+            {alternates.map(({ code, path }) => (
+              <a href={path} aria-current={code === locale ? 'true' : undefined} lang={code}>
+                {code.toUpperCase()}
+              </a>
+            ))}
+          </span>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="wordmark" href={homePath}>Mau<span>r</span>Maket</a>
+            <p class="footer-tagline">{t.footer.tagline}</p>
+          </div>
+          <div>
+            <h3>{t.footer.productCol}</h3>
+            <ul>
+              <li><a href={localePath(locale, '/about/')}>{t.footer.about}</a></li>
+              <li><a href={`${homePath}#get-app`}>{t.footer.getTheApp}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>{t.footer.legalCol}</h3>
+            <ul>
+              <li><a href={localePath(locale, '/legal/terms/')}>{t.footer.terms}</a></li>
+              <li><a href={localePath(locale, '/legal/privacy/')}>{t.footer.privacy}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>{t.footer.contactCol}</h3>
+            <ul>
+              <li>{t.footer.contactNote}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">{t.footer.rights}</div>
+      </div>
+    </footer>
+  </body>
+</html>

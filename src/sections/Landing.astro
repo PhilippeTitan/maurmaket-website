@@ -1,0 +1,114 @@
+---
+import { getStrings, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getStrings(locale);
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">{t.hero.badge}</span>
+    <h1>{t.hero.title}</h1>
+    <p class="hero-lead">{t.hero.lead}</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-lg" href="#get-app">{t.hero.ctaPrimary}</a>
+      <a class="btn btn-ghost btn-lg" href="#how-it-works">{t.hero.ctaSecondary}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="features-heading">{t.features.heading}</h2>
+      <p>{t.features.sub}</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="icon-bubble" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M7 3v4M17 3v4M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9" /></svg>
+        </div>
+        <h3>{t.features.f1Title}</h3>
+        <p>{t.features.f1Body}</p>
+      </article>
+      <article class="card">
+        <div class="icon-bubble" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z" /><circle cx="12" cy="11" r="2.5" /></svg>
+        </div>
+        <h3>{t.features.f2Title}</h3>
+        <p>{t.features.f2Body}</p>
+      </article>
+      <article class="card">
+        <div class="icon-bubble" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2" /><path d="M3 10h18M7 15h4" /></svg>
+        </div>
+        <h3>{t.features.f3Title}</h3>
+        <p>{t.features.f3Body}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft" id="how-it-works" aria-labelledby="steps-heading">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="steps-heading">{t.steps.heading}</h2>
+      <p>{t.steps.sub}</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <span class="step-num" aria-hidden="true">1</span>
+        <h3>{t.steps.s1Title}</h3>
+        <p>{t.steps.s1Body}</p>
+      </article>
+      <article class="card">
+        <span class="step-num" aria-hidden="true">2</span>
+        <h3>{t.steps.s2Title}</h3>
+        <p>{t.steps.s2Body}</p>
+      </article>
+      <article class="card">
+        <span class="step-num" aria-hidden="true">3</span>
+        <h3>{t.steps.s3Title}</h3>
+        <p>{t.steps.s3Body}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section download" id="get-app" aria-labelledby="download-heading">
+  <div class="container">
+    <div class="section-head">
+      <img
+        class="download-logo"
+        src="/logo-text.webp"
+        alt=""
+        width="300"
+        height="96"
+        decoding="async"
+      />
+      <h2 id="download-heading">{t.download.heading}</h2>
+      <p>{t.download.sub}</p>
+    </div>
+    <div style="text-align: center;">
+      <span class="download-status">{t.download.status}</span>
+      <p class="download-note">{t.download.statusNote}</p>
+      <div class="pay-row" role="list" aria-label={t.download.paymentsTitle}>
+        <span class="pay-pill" role="listitem">
+          <img src="/moncash.webp" alt="MonCash" width="96" height="28" loading="lazy" decoding="async" />
+        </span>
+        <span class="pay-pill" role="listitem">
+          <img src="/natcash.webp" alt="NatCash" width="96" height="28" loading="lazy" decoding="async" />
+        </span>
+      </div>
+      <p class="download-note" style="margin-top: 20px; margin-bottom: 0;">{t.download.paymentsNote}</p>
+      <div class="download-support">
+        <h3>{t.download.supportTitle}</h3>
+        <p>{t.download.supportBody}</p>
+      </div>
+    </div>
+  </div>
+</section>

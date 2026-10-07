@@ -1,0 +1,24 @@
+{
+  "name": "maurmaket-website",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "sync:policy": "node scripts/sync-policy.mjs",
+    "check:locales": "node scripts/check-locales.mjs",
+    "check:built": "node scripts/check-built.mjs",
+    "predev": "npm run sync:policy",
+    "dev": "astro dev",
+    "prebuild": "npm run sync:policy && npm run check:locales",
+    "build": "astro build && npm run check:built",
+    "preview": "astro preview",
+    "check": "npm run sync:policy && npm run check:locales && astro sync && astro check"
+  },
+  "dependencies": {
+    "astro": "^7.3.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.9.0"
+  }
+}

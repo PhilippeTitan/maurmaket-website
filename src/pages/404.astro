@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import { getStrings, localePath } from '../i18n';
+
+const t = getStrings('en');
+const home = localePath('en', '/');
+---
+
+<Base locale="en" page="notFound">
+  <section class="section notfound">
+    <div class="container">
+      <div class="notfound-inner">
+        <span class="eyebrow">404</span>
+        <h1>{t.notFound.title}</h1>
+        <p>{t.notFound.body}</p>
+        <a class="btn btn-primary btn-lg" href={home}>{t.notFound.cta}</a>
+      </div>
+    </div>
+  </section>
+</Base>

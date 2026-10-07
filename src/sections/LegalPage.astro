@@ -1,0 +1,49 @@
+---
+import type { Locale } from '../i18n';
+import { getStrings, localePath } from '../i18n';
+import policyMeta from '../generated/policy-meta.json';
+
+interface Props {
+  locale: Locale;
+  kind: 'terms' | 'privacy';
+  Content: any;
+  updated: string;
+}
+
+const { locale, kind, Content, updated } = Astro.props;
+const t = getStrings(locale);
+const meta = policyMeta.policies?.[kind];
+const metaLocale = meta?.locales?.[locale];
+const version = meta?.version;
+const isMaterial = meta?.isMaterial === true;
+const homePath = localePath(locale, '/');
+const altCodes = (['en', 'fr', 'ht'] as const).filter((c) => c !== locale);
+const kindPath = kind === 'terms' ? '/legal/terms/' : '/legal/privacy/';
+---
+
+<section class="section">
+  <div class="container">
+    <div class="legal-wrap">
+      <a class="legal-back" href={homePath}>← {t.legal.backHome}</a>
+      <h1>{metaLocale?.title ?? (kind === 'terms' ? t.header.navTerms : t.header.navPrivacy)}</h1>
+      <div class="legal-meta">
+        <span class="chip">{t.legal.lastUpdated}: {updated}</span>
+        {version && <span class="chip">{t.legal.version}: {version}</span>}
+        {isMaterial && <span class="chip chip-material">{t.legal.materialBadge}</span>}
+      </div>
+      {!metaLocale && <p class="notice">{t.legal.notPublished}</p>}
+      {metaLocale && metaLocale.summary && <p class="notice">{metaLocale.summary}</p>}
+      <div class="legal-body">
+        <Content />
+      </div>
+      <p style="color: var(--text-3); font-size: 0.9rem;">{t.legal.availableIn}: {
+        altCodes.map((code, i) => (
+          <>
+            {i > 0 && ' · '}
+            <a href={localePath(code, kindPath)} lang={code}>{code.toUpperCase()}</a>
+          </>
+        ))
+      }</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "homeTitle": "MaurMaket — Achetez et vendez partout en Haïti",
+    "homeDesc": "MaurMaket est l'application de marché haïtienne. Parcourez les annonces, discutez avec les vendeurs, payez avec MonCash ou NatCash et échangez en toute sécurité lors d'un rendez-vous.",
+    "aboutTitle": "À propos de MaurMaket",
+    "aboutDesc": "Pourquoi nous construisons un marché de confiance pour Haïti.",
+    "notFoundTitle": "Page introuvable",
+    "notFoundDesc": "La page que vous cherchez n'existe pas, ou le lien a changé."
+  },
+  "header": {
+    "navAbout": "À propos",
+    "navTerms": "Conditions",
+    "navPrivacy": "Confidentialité",
+    "getTheApp": "Obtenir l'app",
+    "langSwitch": "Changer de langue",
+    "homeLink": "Accueil MaurMaket"
+  },
+  "hero": {
+    "badge": "Fait en Haïti",
+    "title": "Achetez et vendez partout en Haïti",
+    "lead": "MaurMaket met le marché haïtien en ligne. Trouvez ce qu'il vous faut, parlez directement aux vendeurs, payez en toute sécurité avec MonCash ou NatCash, et retrouvez-vous pour échanger — le tout dans une seule application, en créole, en français ou en anglais.",
+    "ctaPrimary": "Obtenir l'app",
+    "ctaSecondary": "Comment ça marche"
+  },
+  "features": {
+    "heading": "Pourquoi MaurMaket",
+    "sub": "Tout ce que le marché fait déjà — formalisé, sécurisé et simple.",
+    "f1Title": "Discutez et négociez",
+    "f1Body": "Envoyez des messages aux vendeurs, partagez des photos et convenez d'un prix — comme la négociation se fait déjà, sans quitter l'application.",
+    "f2Title": "Payez comme vous voulez",
+    "f2Body": "Payez au checkout avec MonCash, ou payez le vendeur directement avec NatCash lors du rendez-vous. Pas de chasse au change, pas de surprises.",
+    "f3Title": "Rencontrez en sécurité",
+    "f3Body": "Convenez d'un lieu et d'une heure, enregistrez votre arrivée, puis confirmez l'échange avec un code."
+  },
+  "steps": {
+    "heading": "Comment ça marche",
+    "sub": "Trois étapes, de la recherche à la remise.",
+    "s1Title": "Parcourez ou publiez",
+    "s1Body": "Des milliers d'annonces à découvrir, ou votre propre boutique en quelques minutes — gratuit pour commencer.",
+    "s2Title": "Discutez et convenez",
+    "s2Body": "Échangez directement avec l'autre partie, négociez le prix et les détails du rendez-vous.",
+    "s3Title": "Payez et échangez",
+    "s3Body": "Payez avec MonCash ou NatCash, retrouvez-vous au lieu convenu et confirmez la remise."
+  },
+  "download": {
+    "heading": "Obtenir l'app",
+    "sub": "MaurMaket arrive d'abord sur Android.",
+    "status": "Bientôt disponible",
+    "statusNote": "L'APK de MaurMaket n'est pas encore disponible. Le lien de téléchargement apparaîtra ici dès la première version.",
+    "paymentsTitle": "Payez à votre façon",
+    "paymentsNote": "MonCash et NatCash acceptés au checkout et lors du rendez-vous.",
+    "supportTitle": "Une question avant le lancement ?",
+    "supportBody": "Le support sera géré directement sur ce site. Le centre d'aide et le suivi des demandes ouvrent bientôt."
+  },
+  "about": {
+    "heading": "À propos de MaurMaket",
+    "lead": "En Haïti, le commerce vit dans les groupes de discussion, sur les trottoirs et au marché. MaurMaket donne à cette énergie une vraie maison : un marché pensé pour la façon dont Haïti achète et vend vraiment.",
+    "s1Title": "Pensé pour Haïti",
+    "s1Body": "Créole, français et anglais dès le premier jour. Des prix en gourdes. Des rendez-vous là où l'on se retrouve vraiment.",
+    "s2Title": "Une confiance visible",
+    "s2Body": "Vendeurs vérifiés, avis publics sur les achats terminés et historique de commandes attaché à chaque compte.",
+    "s3Title": "Tout au même endroit",
+    "s3Body": "Discussions, offres, photos, paiements et rendez-vous restent dans l'application — plus besoin de suivre un vendeur dans cinq groupes différents.",
+    "valuesHeading": "Nos principes",
+    "v1Title": "Votre argent attend l'article",
+    "v1Body": "Les paiements MonCash sont conservés jusqu'à la confirmation de l'échange, pour que acheteurs et vendeurs se rencontrent à égalité.",
+    "v2Title": "Les petits vendeurs d'abord",
+    "v2Body": "Gratuit pour commencer, des frais clairs, des versements directement sur votre MonCash.",
+    "v3Title": "La sécurité avant la vitesse",
+    "v3Body": "Points de présence au rendez-vous, outils de signalement et revue humaine en cas de problème.",
+    "ctaTitle": "Prêt quand vous l'êtes",
+    "ctaBody": "La première version arrive bientôt. Le lien de téléchargement apparaîtra sur cette page.",
+    "ctaLabel": "Obtenir l'app"
+  },
+  "footer": {
+    "tagline": "L'application de marché d'Haïti.",
+    "productCol": "Produit",
+    "legalCol": "Légal",
+    "contactCol": "Contact",
+    "contactNote": "Le support arrive sur ce site.",
+    "about": "À propos",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "getTheApp": "Obtenir l'app",
+    "rights": "© 2026 MaurMaket. Tous droits réservés."
+  },
+  "legal": {
+    "backHome": "Retour à l'accueil",
+    "lastUpdated": "Dernière mise à jour",
+    "version": "Version",
+    "materialBadge": "Changement important",
+    "availableIn": "Également disponible en :",
+    "notPublished": "Ce document est en cours de publication. Revenez bientôt."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "La page que vous cherchez n'existe pas, ou le lien a changé.",
+    "cta": "Aller à la page d'accueil"
+  }
+}

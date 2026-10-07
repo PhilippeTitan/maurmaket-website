@@ -1,0 +1,13 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import LegalPage from '../../../sections/LegalPage.astro';
+
+const entry = await getEntry('legal', 'privacy.fr');
+if (!entry) throw new Error('Missing legal content: privacy.fr');
+const { Content } = await render(entry);
+---
+
+<Base locale="fr" page="privacy">
+  <LegalPage locale="fr" kind="privacy" Content={Content} updated={entry.data.updated} />
+</Base>

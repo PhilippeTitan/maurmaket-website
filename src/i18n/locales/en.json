@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "homeTitle": "MaurMaket — Buy and sell across Haiti",
+    "homeDesc": "MaurMaket is Haiti's marketplace app. Browse listings, chat with sellers, pay with MonCash or NatCash, and meet up safely to exchange.",
+    "aboutTitle": "About MaurMaket",
+    "aboutDesc": "Why we are building a trusted marketplace for Haiti.",
+    "notFoundTitle": "Page not found",
+    "notFoundDesc": "The page you are looking for does not exist, or the link has changed."
+  },
+  "header": {
+    "navAbout": "About",
+    "navTerms": "Terms",
+    "navPrivacy": "Privacy",
+    "getTheApp": "Get the app",
+    "langSwitch": "Change language",
+    "homeLink": "MaurMaket home"
+  },
+  "hero": {
+    "badge": "Made in Haiti",
+    "title": "Buy and sell across Haiti",
+    "lead": "MaurMaket brings Haiti's marketplace online. Find what you need, talk directly with sellers, pay securely with MonCash or NatCash, and meet up to exchange — all in one app, in Kreyòl, French, or English.",
+    "ctaPrimary": "Get the app",
+    "ctaSecondary": "How it works"
+  },
+  "features": {
+    "heading": "Why MaurMaket",
+    "sub": "Everything the market already does — formalized, safe, and simple.",
+    "f1Title": "Chat and negotiate",
+    "f1Body": "Message sellers directly, share photos, and agree on a price — the way haggling already works, without leaving the app.",
+    "f2Title": "Pay your way",
+    "f2Body": "Pay at checkout with MonCash, or pay the seller directly with NatCash when you meet. No cash hunts, no surprises.",
+    "f3Title": "Meet safely",
+    "f3Body": "Arrange a meetup with an agreed place and time, check in when you arrive, and confirm the exchange with a code."
+  },
+  "steps": {
+    "heading": "How it works",
+    "sub": "Three steps from browsing to handoff.",
+    "s1Title": "Browse or list",
+    "s1Body": "Search listings across Haiti, or open your own shop in minutes — free to start.",
+    "s2Title": "Chat and agree",
+    "s2Body": "Talk directly with the other party, negotiate, and agree on the price and meetup details.",
+    "s3Title": "Pay and exchange",
+    "s3Body": "Pay with MonCash or NatCash, meet at the agreed spot, and confirm the handoff."
+  },
+  "download": {
+    "heading": "Get the app",
+    "sub": "MaurMaket is coming to Android first.",
+    "status": "Coming soon",
+    "statusNote": "The MaurMaket APK is not available yet. The download link will appear right here as soon as the first release ships.",
+    "paymentsTitle": "Pay how you like",
+    "paymentsNote": "MonCash and NatCash supported at checkout and at meetup.",
+    "supportTitle": "Questions before launch?",
+    "supportBody": "Support will be handled right here on this site. The help center and case tracking open soon."
+  },
+  "about": {
+    "heading": "About MaurMaket",
+    "lead": "Haiti runs on informal commerce — in group chats, on street corners, and across market stalls. MaurMaket gives that energy a proper home: a marketplace built for how Haiti actually buys and sells.",
+    "s1Title": "Built for Haiti",
+    "s1Body": "Kreyòl, French, and English from day one. Prices in gourdes. Meetups where you actually meet.",
+    "s2Title": "Trust you can see",
+    "s2Body": "Verified sellers, public reviews on completed purchases, and an order history that follows every account.",
+    "s3Title": "Keep it in the app",
+    "s3Body": "Chat, offers, photos, payments, and meetups stay in one place — no more chasing a seller across five group chats.",
+    "valuesHeading": "What we believe",
+    "v1Title": "Your money waits for the item",
+    "v1Body": "MonCash payments are held until the exchange is confirmed, so buyers and sellers meet as equals.",
+    "v2Title": "Small sellers first",
+    "v2Body": "Free to start, clear fees, and payouts straight to your MonCash.",
+    "v3Title": "Safety over speed",
+    "v3Body": "Meetup check-ins, report tools, and human review when something goes wrong.",
+    "ctaTitle": "Ready when you are",
+    "ctaBody": "The first release is almost here. The download link will appear on this page.",
+    "ctaLabel": "Get the app"
+  },
+  "footer": {
+    "tagline": "Haiti's marketplace app.",
+    "productCol": "Product",
+    "legalCol": "Legal",
+    "contactCol": "Contact",
+    "contactNote": "Support is coming to this site.",
+    "about": "About",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "getTheApp": "Get the app",
+    "rights": "© 2026 MaurMaket. All rights reserved."
+  },
+  "legal": {
+    "backHome": "Back to home",
+    "lastUpdated": "Last updated",
+    "version": "Version",
+    "materialBadge": "Material change",
+    "availableIn": "Also available in:",
+    "notPublished": "This document is being published. Please check back soon."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist, or the link has changed.",
+    "cta": "Go to the homepage"
+  }
+}

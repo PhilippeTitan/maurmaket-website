@@ -1,0 +1,13 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import LegalPage from '../../../sections/LegalPage.astro';
+
+const entry = await getEntry('legal', 'terms.fr');
+if (!entry) throw new Error('Missing legal content: terms.fr');
+const { Content } = await render(entry);
+---
+
+<Base locale="fr" page="terms">
+  <LegalPage locale="fr" kind="terms" Content={Content} updated={entry.data.updated} />
+</Base>
