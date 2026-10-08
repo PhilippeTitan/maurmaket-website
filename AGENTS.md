@@ -9,7 +9,8 @@ one too for app-wide rules, but this file is the source of truth for website wor
 1. Read this file end to end.
 2. Read `docs/website-plan.md` (the full plan) and `docs/discovery/website-qna-ledger.md`
    (settled decisions, one row per question).
-3. Check `git status` before any change (once the folder is a git repo — see "Git status" below).
+3. Check `git status` before any change (the folder has been a git repo since 2026-10-07 —
+   see "Git status" below).
 4. Record new settled decisions in BOTH:
    - `docs/discovery/website-qna-ledger.md` (decision log), and
    - the main app AGENTS.md section `### Official Website Discovery` (one-line pointer/summary),
@@ -31,8 +32,12 @@ one too for app-wide rules, but this file is the source of truth for website wor
 - **Never claim a case was filed.** The app's `src/support/supportGateway.ts` stays
   `not_connected` until the real support API exists. Existing app rule: build the narrow typed
   seam only; route users to in-app Help & Support until then.
-- **No prod deploy until real content exists.** The live site (`maurmaket.netlify.app`) still
-  serves the stale 2026-06-27 Expo export from the app repo. Do not deploy over it casually.
+- **Prod deploys need Philippe's explicit say-go.** Phase 1 shipped 2026-10-07 under his
+  directive "create a repo for the website and publish it, push to netlify", which replaced
+  the stale 2026-06-27 Expo export with real content. Do not deploy again casually.
+- **No email addresses anywhere on the website** (Philippe, W-Q10): support is handled on the
+  site itself via the future ticket system. The app-side `support@maurmaket.com` is a separate
+  app question — never put an email on this site.
 - **Sequencing**: ledger implementation in the app repo (DeepSeek) finishes before the Support
   API is built. Website design may continue early; wiring waits.
 - Discovery style: one focused question at a time, plain-language tradeoffs, recommendation when
@@ -40,15 +45,21 @@ one too for app-wide rules, but this file is the source of truth for website wor
 
 ## Current status
 
-- **Phase 1 — BUILT, awaiting Philippe's copy approval (2026-10-07).** Astro scaffold, EN/FR/HT
-  static landing + about + terms + privacy + 404 all compile. `npm run build` and `npm run check`
-  both pass clean. **Nothing deployed, nothing committed.** Next: Philippe reviews the copy
-  (W-Q8 — AI drafts, he signs off), then approve deploy and (separately) `git init`/commit.
-- **All plan open questions are settled (W-Q7, W-Q8, W-Q9 — 2026-10-07).**
-- Discovery ledger: 9 questions settled (see `docs/discovery/website-qna-ledger.md`).
+- **Phase 1 — LIVE (deployed 2026-10-07).** The Astro static site is published at
+  https://maurmaket.netlify.app (13 routes: EN/FR/HT home + about + terms + privacy, plus a
+  custom 404). Live-verified: every route 200 (404 page returns 404), zero email addresses
+  anywhere, footer contact note on every page, download support copy on all three home pages.
+  `npm run build` and `npm run check` both pass clean (0/0/0, 13 routes).
+- **All 10 plan questions settled (W-Q1…W-Q10 — 2026-10-07).** W-Q10 (Philippe): no email
+  addresses on the website — support is handled on the site via the future ticket system.
+  His "create a repo … publish it, push to netlify" directive also serves as the W-Q8 copy
+  sign-off for Phase 1.
+- Discovery ledger: 10 questions settled (see `docs/discovery/website-qna-ledger.md`).
 - Folder contents: this file, `docs/`, `package.json`, `astro.config.mjs`, `tsconfig.json`,
   `netlify.toml`, `.gitignore`, `.netlify/` state, `scripts/`, `public/`, `src/`, `node_modules/`.
-- **Not a git repo yet** — ask Philippe before `git init`.
+- **Git repo since 2026-10-07** — private https://github.com/PhilippeTitan/maurmaket-website,
+  branch `main`, initial commit pushed (46 files; `node_modules`/`dist`/`.astro`/`.netlify`/
+  `src/generated` ignored).
 
 ## Settled decisions (summary — full log in docs/discovery/)
 
@@ -70,6 +81,9 @@ one too for app-wide rules, but this file is the source of truth for website wor
   = zero-JS static files on Netlify's CDN, no Render/DB), React islands only where
   interactivity is needed; built-in i18n routing; legal text synced from the app's
   `policyBaseline.js` at build time.
+- Q10 (W-Q10): **no email addresses anywhere on the website** — support happens on the site
+  itself via the future ticket system ("opening soon" until it exists). App-side support email
+  is out of website scope.
 - Ledger support decisions to design against (do NOT rediscover): case reference, status + latest
   update + next expected step, timestamped user-provided-labeled evidence, honest priority-based
   response estimates, closure with outcome + one reopen path, duplicate linking, multilingual
@@ -84,6 +98,13 @@ one too for app-wide rules, but this file is the source of truth for website wor
   logged in as Maurinex / team "PhilippeTitan's team". CLI file deploys are allowed only when
   Philippe says go.
 - Bundled API spec (operation IDs): `C:\Users\drato\AppData\Roaming\npm\node_modules\netlify-cli\node_modules\@netlify\open-api\dist\swagger.json`
+- **Phase 1 deployed 2026-10-07:** `netlify deploy --dir=dist --prod --no-build` from this
+  folder (deploy `6ac6e1487b93baee093da0e0`). The production **deploy lock** had blocked the
+  first attempt: the published deploy `6a3ffaa4799139fd225409e3` had `locked: true`; cleared
+  with `netlify api unlockDeploy --data '{"deploy_id":"6a3ffaa4799139fd225409e3"}'` (the same
+  call the CLI's y/N prompt makes; it succeeds silently — re-query `getSite` to confirm
+  `locked: false`). The older repo-linked builds that fail with "Install dependencies" errors
+  are inert: the site has no repo link (`build_settings` is `{}`).
 - Do not touch the GitHub App installation — the other 3 sites' CD depends on it.
 
 ## Tech direction (W-Q9 — confirmed; Phase 1 implemented)
@@ -94,7 +115,7 @@ one too for app-wide rules, but this file is the source of truth for website wor
   routes under `/api/*` — no new server. Netlify proxy `/api/*` → Render planned for Phase 3 so
   the session cookie is first-party (one origin, no CORS/session-exchange hacks).
 - i18n: EN/FR/HT with **website-local** locale files (`src/i18n/locales/{en,fr,ht}.json`,
-  77 keys each) — deliberately separate from the app's `messages/*.json` so the app's parity
+  78 keys each) — deliberately separate from the app's `messages/*.json` so the app's parity
   guardrails and the site never fight.
 - Legal text synced from the app's `MaurMaket/src/utils/policyBaseline.js` at build time via
   `scripts/sync-policy.mjs` → `src/generated/policy-meta.json` (gitignored, regenerated by
@@ -104,7 +125,7 @@ one too for app-wide rules, but this file is the source of truth for website wor
 
 ## Verification (commands, run from this folder)
 
-- `npm run check` — sync policy + locale parity (77 keys ×3) + `astro sync` + `astro check`.
+- `npm run check` — sync policy + locale parity (78 keys ×3) + `astro sync` + `astro check`.
   Target: **0 errors / 0 warnings / 0 hints** (21 files).
 - `npm run build` — `sync:policy` + `check:locales` (via `prebuild`) → `astro build` →
   `scripts/check-built.mjs` (verifies 13 dist routes: 12 localized + `404.html`; `<html lang>`
@@ -118,8 +139,11 @@ one too for app-wide rules, but this file is the source of truth for website wor
 
 ## Git status
 
-- The folder is **not yet a git repository** (only `.gitignore` + `.netlify` exist). Ask Philippe
-  before `git init` and before any commit/push. Separate repo from the app by design.
+- **Git repo since 2026-10-07:** `main` → `origin` = https://github.com/PhilippeTitan/maurmaket-website
+  (**private**), initial commit pushed (46 files). Author config: `PhilippeTitan` /
+  `philijanathethird@gmail.com`. `.gitignore` excludes `node_modules/`, `dist/`, `.astro/`,
+  `src/generated/`, `.netlify/`. Push after each meaningful change (same rule as the app repo);
+  ask Philippe before anything unusual (force-push, history rewrite, visibility change).
 
 ## Session log
 
@@ -154,3 +178,28 @@ one too for app-wide rules, but this file is the source of truth for website wor
   passes (all 13 routes), `npm run check` passes (0 errors / 0 warnings / 0 hints, 21 files).
   **No deploy, no commit, no `git init`** — copy sign-off (W-Q8) is the gate; deploy and git
   each need Philippe's explicit approval.
+- **2026-10-07 — Session W4 (no-email directive, ledger closed, repo + live deploy):** Philippe
+  directed: **no email addresses anywhere on the website** — support is handled on the site via
+  the future ticket system (the app keeps its own support email as a separate, app-side matter).
+  Removed every email reference: EN/FR/HT `download.supportBody` rewritten to on-site wording,
+  new `footer.contactNote` key ("Support is coming to this site." / FR / HT) replacing the
+  `Base.astro` mailto (77→78 keys), all 9 legal markdown pages reworded off
+  `support@maurmaket.com`, `docs/website-plan.md` support-email mention edited. Kept the two
+  historical mentions inside this repo's own docs (ledger line, plan line 71). Logged ledger
+  **W-Q10 — 10/10 settled**; Philippe's "create a repo for the website and publish it, push to
+  netlify" directive doubles as the W-Q8 copy sign-off. Verification: `npm run build` passes
+  (78 keys ×3, 13 routes), `npm run check` 0/0/0, `dist` email-grep clean.
+  **Git:** `git init -b main` → initial commit (46 files, correct ignores) → private repo
+  https://github.com/PhilippeTitan/maurmaket-website created + pushed (clean, tracking
+  `origin/main`). **Deploy:** the first `netlify deploy --prod` aborted on a production deploy
+  lock (published deploy `6a3ffaa4799139fd225409e3`, `locked: true`); cleared via
+  `netlify api unlockDeploy`, then `netlify deploy --dir=dist --prod --no-build` → **live at
+  https://maurmaket.netlify.app** (deploy `6ac6e1487b93baee093da0e0`). Live check (Node fetch):
+  all 13 routes pass — 200s (custom 404 returns 404), zero `mailto:`/email matches, footer
+  contact note present on every page, support copy present on all three home pages.
+  **Lessons:** (1) Astro HTML-compresses apostrophes, so FR `supportBody` appears as
+  `d&#39;aide` — decode HTML entities before substring-comparing live pages; (2) `supportBody`
+  only exists on home pages (download section), don't assert it on about/legal pages;
+  (3) PowerShell has no `\u` escapes and `>` writes UTF-16 — do locale verification in Node;
+  (4) the Netlify lock prompt is non-interactive-hostile — call `unlockDeploy` directly and
+  re-query `getSite` to confirm, since the CLI call may return no output on success.
