@@ -57,9 +57,11 @@ one too for app-wide rules, but this file is the source of truth for website wor
 - Discovery ledger: 10 questions settled (see `docs/discovery/website-qna-ledger.md`).
 - Folder contents: this file, `docs/`, `package.json`, `astro.config.mjs`, `tsconfig.json`,
   `netlify.toml`, `.gitignore`, `.netlify/` state, `scripts/`, `public/`, `src/`, `node_modules/`.
-- **Git repo since 2026-10-07** — private https://github.com/PhilippeTitan/maurmaket-website,
+- **Git repo since 2026-10-07** — **public** https://github.com/PhilippeTitan/maurmaket-website
+  (made public at Philippe's directive "make the repo public", verified `visibility=public`),
   branch `main`, initial commit pushed (46 files; `node_modules`/`dist`/`.astro`/`.netlify`/
-  `src/generated` ignored).
+  `src/generated` ignored). Post-switch exposure audit: 0 secrets/tokens in tracked history;
+  5 email matches are docs-only (decision history, git author) — no remediation needed.
 
 ## Settled decisions (summary — full log in docs/discovery/)
 
@@ -140,10 +142,12 @@ one too for app-wide rules, but this file is the source of truth for website wor
 ## Git status
 
 - **Git repo since 2026-10-07:** `main` → `origin` = https://github.com/PhilippeTitan/maurmaket-website
-  (**private**), initial commit pushed (46 files). Author config: `PhilippeTitan` /
-  `philijanathethird@gmail.com`. `.gitignore` excludes `node_modules/`, `dist/`, `.astro/`,
-  `src/generated/`, `.netlify/`. Push after each meaningful change (same rule as the app repo);
-  ask Philippe before anything unusual (force-push, history rewrite, visibility change).
+  (**public** — visibility switched from private at Philippe's explicit directive; the site
+  has no repo link, so GitHub pushes still never auto-deploy to Netlify). Initial commit pushed
+  (46 files). Author config: `PhilippeTitan` / `philijanathethird@gmail.com`. `.gitignore`
+  excludes `node_modules/`, `dist/`, `.astro/`, `src/generated/`, `.netlify/`. Push after each
+  meaningful change (same rule as the app repo); ask Philippe before anything unusual
+  (force-push, history rewrite, further visibility changes).
 
 ## Session log
 
@@ -201,5 +205,17 @@ one too for app-wide rules, but this file is the source of truth for website wor
   `d&#39;aide` — decode HTML entities before substring-comparing live pages; (2) `supportBody`
   only exists on home pages (download section), don't assert it on about/legal pages;
   (3) PowerShell has no `\u` escapes and `>` writes UTF-16 — do locale verification in Node;
-  (4) the Netlify lock prompt is non-interactive-hostile — call `unlockDeploy` directly and
-  re-query `getSite` to confirm, since the CLI call may return no output on success.
+   (4) the Netlify lock prompt is non-interactive-hostile — call `unlockDeploy` directly and
+   re-query `getSite` to confirm, since the CLI call may return no output on success.
+- **2026-10-07 — Session W5 (repo made public + exposure audit):** Philippe directed "make the
+  repo public". Executed `gh repo edit PhilippeTitan/maurmaket-website --visibility=public
+  --accept-visibility-change-consequences`; verified `visibility=public` via the API. Before
+  and after the switch, ran a tracked-history exposure audit (`git log --all` file list +
+  `git grep` across all refs): **0 token/secret/API-key matches**. 5 email matches, all
+  deliberate docs: this file's directive line (47), git author line, two historical W4/W-Q10
+  mentions in this session log, and the W-Q10 ledger row — none in shipped `dist` or site copy
+  (the live 13/13 check already proved that). **Decision: no remediation needed** — the email
+  rule covers website copy, not decision-history docs. The site still has no repo link, so
+  pushes don't auto-deploy; further visibility changes still need Philippe's explicit say-go.
+  **Commit/push:** W5 doc edits (this session-log entry + the private→public lines above)
+  committed and pushed to `main`.
