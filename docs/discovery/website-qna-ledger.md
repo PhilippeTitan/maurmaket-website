@@ -19,6 +19,11 @@ Discovery style: one focused question at a time, plain-language tradeoffs, recom
 
 **All questions settled (10/10) — 2026-10-07.** Phase 1 built; shipped to Netlify after Philippe's "create a repo … publish it, push to netlify" directive (which also serves as W-Q8 copy sign-off).
 
+**Deploy / sign-off log (append-only):**
+
+- 2026-10-07 — W6 redesign deployed (`2909f03`) under Philippe's "commit + push + deploy now"; his "accept all 5 as built" closed the W6 design questions.
+- 2026-10-08 — W7 immersive-hero + discovery rework (`4233f2a`) and the W7b meetup-photo swap (`8412b8e`, `9e52535`) deployed after Philippe's "proceed" / "u can deploy". That same message covers **W-Q8 sign-off for the W7 `discover.*` and `story.*` copy** (AI-drafted EN/FR/HT), so no copy approval is outstanding. Deploy `6ac72aa30b7c8efff030df10`, verified 71/71 live (all 12 routes 200, 0 emails, per-locale skip links, W7 sections present in all three locales, new 27,122 B meetup image served).
+
 ## Cross-references
 
 - Full plan: `docs/website-plan.md`

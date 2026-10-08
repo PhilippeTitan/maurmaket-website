@@ -50,10 +50,12 @@ one too for app-wide rules, but this file is the source of truth for website wor
   custom 404). Live-verified: every route 200 (404 page returns 404), zero email addresses
   anywhere, footer contact note on every page, download support copy on all three home pages.
   `npm run build` and `npm run check` both pass clean (0/0/0, 13 routes).
-- **W7 immersive-hero + discovery rework committed 2026-10-08 (`4233f2a`, pushed), not yet
-  deployed.** Webp conversion (291.0 KB / 312 KB budget after the meetup swap), immersive photo
-  hero, discover mosaic, story band, 12 new i18n keys (91 ×3). All guardrails green; screenshots
-  verified. Awaiting: Philippe's deploy say-go + `discover.*`/`story.*` copy sign-off.
+- **W7 immersive-hero + discovery rework + W7b meetup photo — LIVE (deployed 2026-10-08).**
+  Deploy `6ac72aa30b7c8efff030df10` (21 files) after Philippe's "proceed" / "u can deploy",
+  which also serves as W-Q8 sign-off for the W7 `discover.*`/`story.*` copy — no approval is
+  outstanding. Webp conversion (291.0 KB / 312 KB budget), immersive photo hero, discover
+  mosaic, story band, 12 new i18n keys (91 ×3). Live verification **71/71 PASS**; screenshots
+  verified. Commits: `4233f2a` (W7), `8412b8e` (W7b), `9e52535` (docs).
 - **All 10 plan questions settled (W-Q1…W-Q10 — 2026-10-07).** W-Q10 (Philippe): no email
   addresses on the website — support is handled on the site via the future ticket system.
   His "create a repo … publish it, push to netlify" directive also serves as the W-Q8 copy
@@ -325,5 +327,29 @@ one too for app-wide rules, but this file is the source of truth for website wor
    no layout shift); `docs/image-sources.md` source row, size table and a replacement note updated.
    **Verification:** `npm run check` 0/0/0 (21 files, 91 keys); `npm run build` OK (13 routes,
    `check:built` OK); CDP screenshot (shot4 recipe, local preview `localhost:8082`) shows both
-   story rows with `unloaded: NONE`. **Commit:** `8412b8e` "Replace meetup story photo with a
-   clear two-person handoff (W7b)" (3 files).
+    story rows with `unloaded: NONE`. **Commit:** `8412b8e` "Replace meetup story photo with a
+    clear two-person handoff (W7b)" (3 files).
+- **2026-10-08 — Session W7c (deploy + copy sign-off):** Philippe said "proceed" (to the listed
+   pending items: deploy say-go + `discover.*`/`story.*` copy sign-off), then confirmed "u can
+   deploy". Treated as **both**: W7 copy approved under W-Q8 and production deploy approved.
+   **Deploy:** `netlify deploy --dir=dist --prod --no-build` → **LIVE**, deploy
+   `6ac72aa30b7c8efff030df10` (21 files) at https://maurmaket.netlify.app; build logs
+   `https://app.netlify.com/projects/maurmaket/deploys/6ac72aa30b7c8efff030df10`. No deploy
+   lock this time (W4's unlock step not needed).
+   **Live verification: 71/71 PASS** (`verify-live.mjs`, corrected) — all 12 routes 200, zero
+   `mailto:`/emails on every route, branded 404, dark theme, per-locale skip links (EN
+   "Skip to content" / FR "Aller au contenu" / HT "Ale nan kontni"), W7 immersive hero +
+   discover + story sections present in all three locales, W6 phone mock gone, meetup image
+   tag carries `width="640" height="427"`, and `story-meetup-640.webp` served from the CDN is
+   the new file (**27,122 B**, `content-type: image/webp`). Plus a 6-needle check that the W7
+   copy renders live in EN/FR/HT ("Discover the marketplace" / "Découvrez le marché" /
+   "Dekouvè mache a" and the three "Meet up and exchange safely" translations) — all PASS.
+   **Script corrections (same class as W6's first run):** `verify-live.mjs` still asserted the
+   Kreyòl skip text on EN/FR (2 false failures → now per-locale), and my new W7 assertions used
+   `id="discover"` / `class="story"` when the real markup is `class="section discover"` with
+   `aria-labelledby="discover-heading"` and `class="section story"` (6 false failures → now
+   matched correctly). Net: **48/2 → 71/0**. Lesson: assert against the built `dist/` markup,
+   not the class name you remember writing.
+   **Records:** ledger gained a "Deploy / sign-off log (append-only)" block (W6, W7/W7b entries
+   including the W-Q8 copy sign-off); this session log and the Current status block updated.
+   **No app-repo changes.** Site source state at deploy: `9e52535` == `origin/main`.
