@@ -219,8 +219,8 @@ one too for app-wide rules, but this file is the source of truth for website wor
   pushes don't auto-deploy; further visibility changes still need Philippe's explicit say-go.
   **Commit/push:** W5 doc edits (this session-log entry + the private→public lines above)
   committed and pushed to `main`.
-- **2026-10-07 — Session W6 (visual redesign absorbed into this repo, NOT deployed, NOT
-  committed):** Philippe delivered `MaurMaketWeb Redesign.zip` (patch + full project) and
+- **2026-10-07 — Session W6 (visual redesign absorbed, committed, pushed and DEPLOYED):**
+  Philippe delivered `MaurMaketWeb Redesign.zip` (patch + full project) and
   directed implementing it. **Provenance:** applied here via
   `git apply --exclude=AGENTS.md maurmaket-redesign.patch` (15 of 16 files clean; this
   AGENTS.md was merged manually — the three 78→79 key-count edits above plus this entry).
@@ -238,7 +238,7 @@ one too for app-wide rules, but this file is the source of truth for website wor
   `apple-touch-icon.png`, regenerated `favicon.png`; removed the 287 KB `logo-icon.webp` +
   `logo-text.webp`. Aurora backgrounds are pure CSS (the art file has the logo baked in and
   ghosted). **i18n:** only one new key, `header.skipToContent` (EN/FR/HT — "Aller au contenu",
-  "Ale nan kontni"; **flag for Philippe's W-Q8 sign-off**). All other copy reused. The tagline
+  "Ale nan kontni"; W-Q8 sign-off received, see decisions below). All other copy reused. The tagline
   "Achete • Vann • Negosye" is the logo's own Kreyòl slogan, shown unchanged in every locale.
   **Verification (this repo, all green):** `npm run build` passes (79 keys ×3, 13 routes,
   `check:built` OK); `npm run check` 0 errors / 0 warnings / 0 hints (21 files); `dist`
@@ -247,10 +247,24 @@ one too for app-wide rules, but this file is the source of truth for website wor
   390×800 and 1280×900 — status 200 and `scrollWidth == bodyWidth == viewport` on every
   check; the only flagged element is the off-screen `.skip-link` at `left=-9999`, the standard
   a11y pattern, not real overflow — the script now always prints overflowing elements so this
-  stays visible); `dist` totals ~371 KB (22 files). **Open decisions for Philippe:** (1)
-  dark-only, no light mode; (2) phone mockup values ("2 500 G", 4-digit code) are
-  illustrative; (3) Kreyòl tagline in every locale; (4) the new skip-link copy under W-Q8;
-  (5) **deploy still needs his say-go** (`netlify deploy --dir=dist --prod --no-build`;
-  check for the deploy lock first, see W4 lessons). No commit, no push, no deploy of these
-  changes; working tree holds the 15 modified/new files plus the untracked
-  `MaurMaket Web Redesign/` delivery folder (never stage it).
+  stays visible); `dist` totals ~371 KB (22 files).
+  **Decisions (Philippe, 2026-10-07):** asked to "commit + push + deploy now" (Q1) and
+  "accept all 5 as built" (Q2) — (1) dark-only, no light mode; (2) phone mockup values
+  ("2 500 G", 4-digit code) are illustrative; (3) Kreyòl tagline "Achete • Vann • Negosye"
+  in every locale; (4) skip-link copy EN "Skip to content" / FR "Aller au contenu" /
+  HT "Ale nan kontni" — **W-Q8 copy sign-off**, closing that plan question; (5) deploy
+  approved. No approvals outstanding.
+  **Commit/push:** `2909f03` "Redesign landing, about, brand assets and dark theme (W6)"
+  (16 files, +886/−210) pushed to `main`; `main` == `origin/main`. Only the untracked
+  `MaurMaket Web Redesign/` delivery folder remains unstaged (never stage it).
+  **Deploy:** deploy lock clear (W4 lesson applied), then
+  `netlify deploy --dir=dist --prod --no-build` from this directory. **LIVE at
+  `https://maurmaket.netlify.app`** — deploy ID `6ac6fa0ff3148918c0a99285`, 20 files,
+  build log `https://app.netlify.com/projects/maurmaket/deploys/6ac6fa0ff314891`.
+  **Live verification: 50/50 PASS** (`verify-live.mjs`) — all 12 routes 200 (`/`, `/fr/`,
+  `/ht/`, each locale's `/about/` + `/legal/terms/` + `/legal/privacy/`), 0 `mailto:` and
+  0 email addresses on every route, branded 404 (status 404, mentions MaurMaket), dark
+  theme color present, branded Terms/Privacy content, per-locale skip links correct in all
+  three languages (no cross-locale leakage), Kreyòl tagline "Achete" on all 3 locales.
+  (First run reported 48/2 failed — both failures were wrong assertions in the script
+  itself: it expected the Kreyòl skip text on EN/FR; corrected to per-locale checks.)
