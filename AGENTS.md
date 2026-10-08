@@ -50,10 +50,10 @@ one too for app-wide rules, but this file is the source of truth for website wor
   custom 404). Live-verified: every route 200 (404 page returns 404), zero email addresses
   anywhere, footer contact note on every page, download support copy on all three home pages.
   `npm run build` and `npm run check` both pass clean (0/0/0, 13 routes).
-- **W7 immersive-hero + discovery rework built 2026-10-08, not yet committed/deployed.**
-  Webp conversion (302.4 KB / 312 KB budget), immersive photo hero, discover mosaic,
-  story band, 12 new i18n keys (91 ×3). All guardrails green; screenshots verified.
-  Awaiting: commit + push, then Philippe's deploy say-go.
+- **W7 immersive-hero + discovery rework committed 2026-10-08 (`4233f2a`, pushed), not yet
+  deployed.** Webp conversion (291.0 KB / 312 KB budget after the meetup swap), immersive photo
+  hero, discover mosaic, story band, 12 new i18n keys (91 ×3). All guardrails green; screenshots
+  verified. Awaiting: Philippe's deploy say-go + `discover.*`/`story.*` copy sign-off.
 - **All 10 plan questions settled (W-Q1…W-Q10 — 2026-10-07).** W-Q10 (Philippe): no email
   addresses on the website — support is handled on the site via the future ticket system.
   His "create a repo … publish it, push to netlify" directive also serves as the W-Q8 copy
@@ -310,5 +310,20 @@ one too for app-wide rules, but this file is the source of truth for website wor
    **Lesson:** Chrome's plain `--headless --screenshot` times out or captures blank
    `#121212` frames here — use CDP (`--remote-debugging-port` + `Page.navigate` +
    `Page.captureScreenshot` with `captureBeyondViewport`), and force `img[loading=lazy]`
-   to eager before capturing below-fold content. **No commit, no deploy** — commit then
-   Philippe's deploy say-go, as always.
+   to eager before capturing below-fold content.
+   **Commit:** `4233f2a` "Rework landing with immersive hero, discovery mosaic and webp
+   imagery (W7)" (14 files, +387/−69) pushed to `main`; `main` == `origin/main`.
+   **No deploy** — Philippe's deploy say-go still required (as always).
+- **2026-10-08 — Session W7b (meetup story image replaced):** Philippe: the "Meet up and
+   exchange safely" photo "doesn't really work … its leaves" — Pexels 14751081 was a produce
+   still-life where the handoff was a small detail. Replaced with **Pexels 6969962** (two people
+   passing a shopping bag, hand-to-hand); also rejected 6591159 (same greens problem) and
+   4173174 (one person holding bags toward camera — clear, but not a two-party exchange).
+   Converted 640×427 at q90 → **27,122 B**: better *and* 11.6 KB smaller than the old file, so
+   the seven-image budget improved **309,658 B → 298,002 B (291.0 KB / 312 KB target)**.
+   `Landing.astro` height fixed 426 → 427 (browser-measured `naturalWidth/Height` = 640×427, so
+   no layout shift); `docs/image-sources.md` source row, size table and a replacement note updated.
+   **Verification:** `npm run check` 0/0/0 (21 files, 91 keys); `npm run build` OK (13 routes,
+   `check:built` OK); CDP screenshot (shot4 recipe, local preview `localhost:8082`) shows both
+   story rows with `unloaded: NONE`. **Commit:** `8412b8e` "Replace meetup story photo with a
+   clear two-person handoff (W7b)" (3 files).
