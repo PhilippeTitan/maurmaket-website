@@ -15,11 +15,11 @@ to responsive WebP at build time into `public/` (see "Optimized files" below).
 | `cat-electronics.jpg` | 33763153 | https://www.pexels.com/photo/33763153/ | Pexels License | Discovery mosaic — phones & accessories card (lazy) |
 | `cat-fashion.jpg` | 4199526 | https://www.pexels.com/photo/4199526/ | Pexels License | Discovery mosaic — fashion & vendors card (lazy) |
 | `story-mobilemoney.jpg` | 4226272 | https://www.pexels.com/photo/4226272/ | Pexels License | Narrative band — mobile money payment (lazy) |
-| `story-meetup.jpg` | 14751081 | https://www.pexels.com/photo/14751081/ | Pexels License | Narrative band — in-person meetup / handing goods (lazy) |
+| `story-meetup.jpg` | 6969962 | https://www.pexels.com/photo/6969962/ | Pexels License | Narrative band — in-person meetup / handing goods (lazy) |
 
 ## Optimized files (WebP)
 
-Byte budget: the seven landing images total **302.4 KB** (309,658 B) against a ~312 KB target.
+Byte budget: the seven landing images total **291.0 KB** (298,002 B) against a ~312 KB target.
 Widths/qualities were chosen by measuring quality sweeps at the planned CSS display sizes
 (hero 1152 covers full-bleed up to 1x desktop; cards 560 ≈ 2x DPR for a ~270 px mosaic card;
 stories 640 for the narrative band).
@@ -32,7 +32,7 @@ stories 640 for the narrative band).
 | `public/cat-electronics-560.webp` | 560 | 55 | 23,528 B (23.0 KB) | `cat-electronics.jpg` |
 | `public/cat-fashion-560.webp` | 560 | 55 | 15,654 B (15.3 KB) | `cat-fashion.jpg` |
 | `public/story-mobilemoney-640.webp` | 640 | 55 | 9,670 B (9.4 KB) | `story-mobilemoney.jpg` |
-| `public/story-meetup-640.webp` | 640 | 55 | 38,778 B (37.9 KB) | `story-meetup.jpg` |
+| `public/story-meetup-640.webp` | 640 | 90 | 27,122 B (26.5 KB) | `story-meetup.jpg` |
 
 ## Notes
 
@@ -42,3 +42,9 @@ stories 640 for the narrative band).
   from our own `dist/` (Netlify CDN).
 - Rejected candidates (handshake stock clichés, wrong locale/market, portrait mismatch) were
   discarded and never used; see session log in `AGENTS.md`.
+- **Replaced 2026-10-08:** the original meetup photo (Pexels 14751081) read as "leafy greens"
+  at display size — the handoff was a small detail in a produce still-life. Replaced with
+  6969962 (two people passing a shopping bag, hand-to-hand). Also rejected in that pass:
+  6591159 (same greens problem), 4173174 (single person holding bags toward camera — clear,
+  but not a two-party exchange). The swap cut the file from 38,778 B to 27,122 B at higher
+  quality (90), so the seven-image budget improved to 291.0 KB.
