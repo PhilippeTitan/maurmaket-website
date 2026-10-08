@@ -23,6 +23,14 @@
     "ctaPrimary": "Telechaje app la",
     "ctaSecondary": "Kijan li mache"
   },
+  "discover": {
+    "heading": "Dekouvè mache a",
+    "sub": "Manje fre, atizana, elektwonik, ak mod — gade sa Ayiti ap vann kounye a.",
+    "catProduce": "Manje fre",
+    "catCrafts": "Atizana",
+    "catElectronics": "Elektwonik",
+    "catFashion": "Mod"
+  },
   "features": {
     "heading": "Poukisa MaurMaket",
     "sub": "Tout sa mache a fè deja — ofisyèl, an sekirite, e senp.",
@@ -32,6 +40,14 @@
     "f2Body": "Peye lè ou achte a ak MonCash, oswa peye vandè a dirèk ak NatCash lè ou rankontre li. Pa gen chach pou lajan kach, pa gen sipriz.",
     "f3Title": "Rankontre an sekirite",
     "f3Body": "Akòde yon kote ak yon lè, enskri ou lè ou rive, epi konfime echanj lan ak yon kòd."
+  },
+  "story": {
+    "heading": "Fèt pou jan Ayiti komès",
+    "sub": "Kominike, peye, epi rankontre — tout bagay la rete nan yon sèl kote.",
+    "payTitle": "Peye ak MonCash oswa NatCash",
+    "payBody": "Peye an sekirite ak MonCash, oswa peye vandè a dirèk ak NatCash lè ou rankontre li. Lajan ou tann jiskaske echanj lan konfime.",
+    "meetupTitle": "Rankontre epi fè echanj an sekirite",
+    "meetupBody": "Akòde yon kote ak yon lè, enskri ou lè ou rive, epi konfime remèt la ak yon kòd — pa gen malantandi, pa gen sipriz."
   },
   "steps": {
     "heading": "Kijan li mache",

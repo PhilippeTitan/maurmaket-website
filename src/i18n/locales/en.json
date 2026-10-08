@@ -23,6 +23,14 @@
     "ctaPrimary": "Get the app",
     "ctaSecondary": "How it works"
   },
+  "discover": {
+    "heading": "Discover the marketplace",
+    "sub": "Fresh produce, handmade crafts, electronics, and fashion — browse what Haiti is selling right now.",
+    "catProduce": "Fresh produce",
+    "catCrafts": "Handmade crafts",
+    "catElectronics": "Electronics",
+    "catFashion": "Fashion"
+  },
   "features": {
     "heading": "Why MaurMaket",
     "sub": "Everything the market already does — formalized, safe, and simple.",
@@ -32,6 +40,14 @@
     "f2Body": "Pay at checkout with MonCash, or pay the seller directly with NatCash when you meet. No cash hunts, no surprises.",
     "f3Title": "Meet safely",
     "f3Body": "Arrange a meetup with an agreed place and time, check in when you arrive, and confirm the exchange with a code."
+  },
+  "story": {
+    "heading": "Built for the way Haiti trades",
+    "sub": "Chat, pay, and meet up — the whole deal stays in one place.",
+    "payTitle": "Pay with MonCash or NatCash",
+    "payBody": "Check out securely with MonCash, or pay the seller directly with NatCash when you meet. Your money waits until the exchange is confirmed.",
+    "meetupTitle": "Meet up and exchange safely",
+    "meetupBody": "Agree on a place and time, check in when you arrive, and confirm the handoff with a code — no crossed wires, no surprises."
   },
   "steps": {
     "heading": "How it works",

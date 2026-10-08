@@ -1244,3 +1244,169 @@ p {
     transform: none;
   }
 }
+
+/* ---------- W7: immersive hero, discovery grid, story band ---------- */
+
+/* Full-bleed photo hero: text stays on the existing .hero-* classes,
+   the photo and scrim sit behind it. The decorative grid overlay would
+   read as noise on top of photography, so both aurora layers are off. */
+.hero-immersive {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(88px, 13vw, 168px) 0 clamp(72px, 11vw, 132px);
+}
+
+.hero-immersive::before,
+.hero-immersive::after {
+  display: none;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(11, 15, 26, 0.97) 0%, rgba(11, 15, 26, 0.86) 44%, rgba(11, 15, 26, 0.48) 100%),
+    linear-gradient(0deg, rgba(11, 15, 26, 0.94) 0%, rgba(11, 15, 26, 0.2) 48%, rgba(11, 15, 26, 0.55) 100%);
+}
+
+.hero-immersive-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-immersive-inner .hero-lead {
+  max-width: 640px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-bg {
+    animation: mm-fade 0.7s ease both;
+  }
+}
+
+@keyframes mm-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Discovery mosaic: four category tiles with a label pill. */
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(14px, 2vw, 20px);
+}
+
+@media (min-width: 920px) {
+  .discover-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.discover-tile {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.discover-tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.discover-tile::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(0deg, rgba(11, 15, 26, 0.78), transparent);
+  pointer-events: none;
+}
+
+.discover-tile:hover img {
+  transform: scale(1.04);
+}
+
+.discover-label {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 1;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(11, 15, 26, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discover-tile img {
+    transition: none;
+  }
+
+  .discover-tile:hover img {
+    transform: none;
+  }
+}
+
+/* Story band: alternating image / copy rows. */
+.story-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.story-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.story-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.story-copy h3 {
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  margin-bottom: 12px;
+}
+
+.story-copy p {
+  color: var(--text-2);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+@media (min-width: 860px) {
+  .story-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .story-reverse .story-media {
+    order: 2;
+  }
+}

@@ -23,6 +23,14 @@
     "ctaPrimary": "Obtenir l'app",
     "ctaSecondary": "Comment ça marche"
   },
+  "discover": {
+    "heading": "Découvrez le marché",
+    "sub": "Produits frais, artisanat, électronique et mode — parcourez ce que l'Haïti vend en ce moment.",
+    "catProduce": "Produits frais",
+    "catCrafts": "Artisanat",
+    "catElectronics": "Électronique",
+    "catFashion": "Mode"
+  },
   "features": {
     "heading": "Pourquoi MaurMaket",
     "sub": "Tout ce que le marché fait déjà — formalisé, sécurisé et simple.",
@@ -32,6 +40,14 @@
     "f2Body": "Payez au checkout avec MonCash, ou payez le vendeur directement avec NatCash lors du rendez-vous. Pas de chasse au change, pas de surprises.",
     "f3Title": "Rencontrez en sécurité",
     "f3Body": "Convenez d'un lieu et d'une heure, enregistrez votre arrivée, puis confirmez l'échange avec un code."
+  },
+  "story": {
+    "heading": "Pensé pour la façon dont Haïti échange",
+    "sub": "Discutez, payez et retrouvez-vous — toute l'affaire reste au même endroit.",
+    "payTitle": "Payez avec MonCash ou NatCash",
+    "payBody": "Payez en toute sécurité avec MonCash, ou payez directement le vendeur avec NatCash lors du rendez-vous. Votre argent attend la confirmation de l'échange.",
+    "meetupTitle": "Retrouvez-vous et échangez en sécurité",
+    "meetupBody": "Convenez d'un lieu et d'une heure, enregistrez votre arrivée, puis confirmez la remise avec un code — pas de malentendus, pas de surprises."
   },
   "steps": {
     "heading": "Comment ça marche",
