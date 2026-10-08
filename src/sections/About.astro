@@ -11,10 +11,12 @@ const homePath = localePath(locale, '/');
 ---
 
 <section class="hero">
-  <div class="container hero-inner">
-    <span class="eyebrow">{t.hero.badge}</span>
-    <h1>{t.about.heading}</h1>
-    <p class="hero-lead">{t.about.lead}</p>
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow">{t.hero.badge}</span>
+      <h1>{t.about.heading}</h1>
+      <p class="hero-lead">{t.about.lead}</p>
+    </div>
   </div>
 </section>
 
@@ -26,12 +28,16 @@ const homePath = localePath(locale, '/');
     </div>
     <div class="grid grid-3">
       <article class="card">
-        <span class="step-num" aria-hidden="true">1</span>
+        <div class="icon-bubble" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z" /><path d="m9 12 2 2 4-4" /></svg>
+        </div>
         <h3>{t.about.s2Title}</h3>
         <p>{t.about.s2Body}</p>
       </article>
       <article class="card">
-        <span class="step-num" aria-hidden="true">2</span>
+        <div class="icon-bubble" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.6-.8L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5Z" /></svg>
+        </div>
         <h3>{t.about.s3Title}</h3>
         <p>{t.about.s3Body}</p>
       </article>
@@ -79,7 +85,7 @@ const homePath = localePath(locale, '/');
 <section class="section">
   <div class="container">
     <div class="cta-card">
-      <h2>{t.about.ctaTitle}</h2>
+      <h2><span class="grad-text">{t.about.ctaTitle}</span></h2>
       <p>{t.about.ctaBody}</p>
       <a class="btn btn-on-dark btn-lg" href={`${homePath}#get-app`}>{t.about.ctaLabel}</a>
     </div>

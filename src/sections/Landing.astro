@@ -7,19 +7,81 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getStrings(locale);
+
+// Highlight the last word of the headline ("…across Haiti") with the brand gradient.
+const words = t.hero.title.split(' ');
+const lastWord = words.pop() ?? '';
+const headStart = words.join(' ');
 ---
 
 <section class="hero">
-  <div class="container hero-inner">
-    <span class="eyebrow">{t.hero.badge}</span>
-    <h1>{t.hero.title}</h1>
-    <p class="hero-lead">{t.hero.lead}</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="#get-app">{t.hero.ctaPrimary}</a>
-      <a class="btn btn-ghost btn-lg" href="#how-it-works">{t.hero.ctaSecondary}</a>
+  <div class="container hero-grid">
+    <div class="hero-inner">
+      <span class="eyebrow">{t.hero.badge}</span>
+      <h1>{headStart} <span class="grad-text">{lastWord}</span></h1>
+      <p class="hero-lead">{t.hero.lead}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="#get-app">{t.hero.ctaPrimary}</a>
+        <a class="btn btn-ghost btn-lg" href="#how-it-works">{t.hero.ctaSecondary}</a>
+      </div>
+      <div class="hero-pay">
+        <span>{t.download.paymentsTitle}</span>
+        <span class="pay-pill"><img src="/moncash.webp" alt="MonCash" width="96" height="28" decoding="async" /></span>
+        <span class="pay-pill"><img src="/natcash.webp" alt="NatCash" width="96" height="28" decoding="async" /></span>
+      </div>
+    </div>
+
+    <!-- Decorative product preview: chat → agreed price → pay → handoff code -->
+    <div class="stage" aria-hidden="true">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="ph-top">
+            <img src="/brand-icon-96.webp" alt="" width="96" height="89" />
+            <span class="ph-bar" style="width: 84px"></span>
+            <span class="ph-avatar"></span>
+          </div>
+          <div class="ph-bubble in">
+            <span class="ph-bar" style="width: 118px"></span>
+            <span class="ph-bar" style="width: 74px"></span>
+          </div>
+          <div class="ph-bubble out">2 500 G</div>
+          <div class="ph-card">
+            <span class="ph-bar" style="width: 96px"></span>
+            <div class="ph-pay-row">
+              <span class="pay-pill on"><img src="/moncash.webp" alt="" width="96" height="28" /></span>
+              <span class="pay-pill"><img src="/natcash.webp" alt="" width="96" height="28" /></span>
+            </div>
+          </div>
+          <div class="ph-map">
+            <i></i>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-5 7-11.5a7 7 0 1 0-14 0C5 17 12 22 12 22Z" /><circle cx="12" cy="10.5" r="2.6" fill="#0b0f1a" /></svg>
+          </div>
+          <div class="ph-code">
+            <div class="ph-ok">
+              <span class="tick">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
+              </span>
+              <span class="ph-bar" style="width: 110px"></span>
+            </div>
+            <div class="ph-digits"><span>4</span><span>7</span><span>2</span><span>9</span></div>
+          </div>
+        </div>
+      </div>
+      <span class="float-chip a">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z" /><circle cx="12" cy="11" r="2.5" /></svg>
+        <span class="ph-bar" style="width: 54px"></span>
+      </span>
+      <span class="float-chip b">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
+        <span>2 500 G</span>
+      </span>
     </div>
   </div>
 </section>
+
+<div class="tagline-strip">
+  <p>Achete • Vann • Negosye</p>
+</div>
 
 <section class="section" aria-labelledby="features-heading">
   <div class="container">
@@ -30,21 +92,21 @@ const t = getStrings(locale);
     <div class="grid grid-3">
       <article class="card">
         <div class="icon-bubble" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M7 3v4M17 3v4M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9" /></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.6-.8L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5Z" /></svg>
         </div>
         <h3>{t.features.f1Title}</h3>
         <p>{t.features.f1Body}</p>
       </article>
       <article class="card">
         <div class="icon-bubble" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z" /><circle cx="12" cy="11" r="2.5" /></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5" /><path d="M3 10.5h18M7 15h4" /></svg>
         </div>
         <h3>{t.features.f2Title}</h3>
         <p>{t.features.f2Body}</p>
       </article>
       <article class="card">
         <div class="icon-bubble" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2" /><path d="M3 10h18M7 15h4" /></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z" /><circle cx="12" cy="11" r="2.5" /></svg>
         </div>
         <h3>{t.features.f3Title}</h3>
         <p>{t.features.f3Body}</p>
@@ -79,15 +141,53 @@ const t = getStrings(locale);
   </div>
 </section>
 
+<section class="section" aria-labelledby="promises-heading">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="promises-heading">{t.about.valuesHeading}</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="promise">
+        <span class="tick" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
+        </span>
+        <div>
+          <h3>{t.about.v1Title}</h3>
+          <p>{t.about.v1Body}</p>
+        </div>
+      </div>
+      <div class="promise">
+        <span class="tick" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
+        </span>
+        <div>
+          <h3>{t.about.v2Title}</h3>
+          <p>{t.about.v2Body}</p>
+        </div>
+      </div>
+      <div class="promise">
+        <span class="tick" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
+        </span>
+        <div>
+          <h3>{t.about.v3Title}</h3>
+          <p>{t.about.v3Body}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section download" id="get-app" aria-labelledby="download-heading">
   <div class="container">
     <div class="section-head">
       <img
         class="download-logo"
-        src="/logo-text.webp"
+        src="/brand-icon-512.webp"
         alt=""
-        width="300"
-        height="96"
+        width="512"
+        height="473"
+        loading="lazy"
         decoding="async"
       />
       <h2 id="download-heading">{t.download.heading}</h2>
