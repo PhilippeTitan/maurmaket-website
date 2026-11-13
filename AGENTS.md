@@ -45,6 +45,17 @@ one too for app-wide rules, but this file is the source of truth for website wor
 
 ## Current status
 
+- **2026-11-13 — Account-deletion page LIVE + HT copy rewritten:** the public page shipped
+  (`https://maurmaket.netlify.app/account-deletion/` + `/fr/` + `/ht/`), so the app's
+  self-service closure flow now has a real, actionable web entry point for Play review. Deployed
+  in two commits per Philippe's "commit everything, two commits" call: `eea2c31` (site redesign +
+  2026-10-31 legal text, 12 files) and `bb819ff` (deletion page, 11 files). Live deploy
+  `6af71738ed8afc215177a633` serves **16 routes**. The Kreyòl group was then rewritten — the
+  original was machine-translated ("Fwen", "pwodui manman ou", "jwi 1") and is now natural
+  Kreyòl matching the app's own labels — commit `158927a`, redeployed, live-verified
+  (`title`/`h1` = "Fèmen kont ou", `Fwen` = 0, `Fèmen` = 5, `email` = 0, `maurmaket://delete-account`
+  CTA = 1, no U+FFFD). `check:locales` 130 ×3, `npm run check` 0/0/0, `npm run build` 16 pages,
+  `check:built` OK. `main` == `origin/main`.
 - **2026-11-11 — Web account-deletion page (built; NOT deployed):** Added the public
   self-service account-closure information page to the Astro site (`src/pages/account-deletion.astro`
   + `src/pages/{fr,ht}/account-deletion.astro`, `src/sections/AccountDeletion.astro`). Driven by
@@ -397,3 +408,33 @@ one too for app-wide rules, but this file is the source of truth for website wor
    OK — 16 pages, `check:built` OK (the `maurmaket://` href is correctly not treated as an
    internal link); built EN/FR/HT inspected — exactly 1 scheme link and **0 email matches** per
    page (W-Q10 honoured). App-repo `tsc --noEmit` exit 0. **No deploy, no commit, no push.**
+- **2026-11-13 — Session W8c (two commits: site redesign + legal text, then the deletion page):**
+   Philippe's instruction was "commit everything, two commits" — in-progress site redesign and the
+   2026-10-31 legal-text changes as commit 1, the account-deletion work on top as commit 2. Nothing
+   was discarded: `eea2c31` "Rework the public site's visual system and update legal text"
+   (12 files, +842/−841) then `bb819ff` "Add a public account-deletion page for Play review"
+   (11 files, +300/−8), both pushed to `main`.
+   **A temporary-directory loss was recovered mid-session:** `Base.astro`, `check-built.mjs` and the
+   three localized page wrappers were gone and were rebuilt from the documented design (page-union
+   member, title/description branch, `/account-deletion/` alternates suffix, footer legal link;
+   16 expected routes). All 9 files are in git. The AGENTS.md arithmetic for this session was also
+   corrected (**128/37/34 → 130/39/36**) and a stray leading space in the W8b bullet re-joined.
+   **Deploy:** `npx netlify deploy --prod --dir=dist` → deploy `6af71738ed8afc215177a633`; all
+   **16 routes live-verified 200**, unknown path → 404, font `woff2` 200.
+- **2026-11-13 — Session W8d (HT copy rewritten + redeployed):** the EN page was fine but the
+   Haitian Creole group was machine output, not Kreyòl — `Fwen` is not a word (correct `Fèmen`),
+   and phrases like "Fwen ou kont retri pwodui manman ou" read as literal word-for-word
+   translation. Confirmed the defect was confined to this group: a scan of all 2973 app HT keys
+   flagged only `deleteAccount`, and a scan of the site flagged only `accountDeletion` +
+   `meta.accountDeletionTitle`. Rewrote **34 value lines** (keys unchanged, key order and CRLF
+   preserved — the file is 2-space JSON + CRLF + trailing newline, safe to re-serialize with
+   `.replace(/\n/g,'\r\n')`), using the app's own terminology: "Fèmen kont" (not "Fwen"),
+   "done pèsonèl", "kòmand", "peman", "sekirite", "modpas", "vandè", "anons", "diskisyon", and the
+   in-app menu labels `Done w ak Konfidansyalite` / `Fèmen kont` so the page names what the user
+   will actually see. **Verification:** `check:locales` 130 ×3, `npm run check` 0/0/0 (25 files),
+   `npm run build` 16 pages, `check:built` OK. Commit `158927a` pushed; redeployed; live
+   `/ht/account-deletion/` verified by Node (real UTF-8 bytes, not the console's transliteration):
+   `lang=ht`, title/h1 "Fèmen kont ou", 3 alternate links, 1 scheme CTA, 0 emails, `Fwen` = 0,
+   `Fèmen` = 5, no U+FFFD. Other routes still 200. **Lesson:** the Windows console prints `—`→`-`
+   and `è`→`?`, so an accented copy fix must be byte-verified with a Node `https.get` check before
+   it is called done.
