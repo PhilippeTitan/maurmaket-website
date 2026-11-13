@@ -5,7 +5,7 @@ import policyMeta from '../generated/policy-meta.json';
 
 interface Props {
   locale: Locale;
-  page: 'home' | 'about' | 'terms' | 'privacy' | 'notFound';
+  page: 'home' | 'about' | 'terms' | 'privacy' | 'notFound' | 'accountDeletion';
 }
 
 const { locale, page } = Astro.props;
@@ -21,6 +21,9 @@ if (page === 'about') {
 } else if (page === 'notFound') {
   title = t.meta.notFoundTitle;
   description = t.meta.notFoundDesc;
+} else if (page === 'accountDeletion') {
+  title = t.meta.accountDeletionTitle;
+  description = t.meta.accountDeletionDesc;
 } else if (page === 'terms' || page === 'privacy') {
   const entry = policyMeta.policies?.[page]?.locales?.[locale];
   title = entry?.title ?? t.meta.homeTitle;
@@ -30,7 +33,17 @@ if (page === 'about') {
 const alternates: { code: Locale; path: string }[] = [];
 for (const code of ['en', 'fr', 'ht'] as const) {
   const suffix =
-    page === 'home' ? '/' : page === 'about' ? '/about/' : page === 'terms' ? '/legal/terms/' : page === 'privacy' ? '/legal/privacy/' : '/';
+    page === 'home'
+      ? '/'
+      : page === 'about'
+        ? '/about/'
+        : page === 'terms'
+          ? '/legal/terms/'
+          : page === 'privacy'
+            ? '/legal/privacy/'
+            : page === 'accountDeletion'
+              ? '/account-deletion/'
+              : '/';
   if (isLocale(code)) alternates.push({ code, path: localePath(code, suffix) });
 }
 ---
@@ -116,6 +129,7 @@ for (const code of ['en', 'fr', 'ht'] as const) {
             <ul>
               <li><a href={localePath(locale, '/legal/terms/')}>{t.footer.terms}</a></li>
               <li><a href={localePath(locale, '/legal/privacy/')}>{t.footer.privacy}</a></li>
+              <li><a href={localePath(locale, '/account-deletion/')}>{t.footer.accountDeletion}</a></li>
             </ul>
           </div>
           <div>

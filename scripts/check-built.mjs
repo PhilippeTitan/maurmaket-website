@@ -22,14 +22,17 @@ const routes = [
   'about/index.html',
   'legal/terms/index.html',
   'legal/privacy/index.html',
+  'account-deletion/index.html',
   'fr/index.html',
   'fr/about/index.html',
   'fr/legal/terms/index.html',
   'fr/legal/privacy/index.html',
+  'fr/account-deletion/index.html',
   'ht/index.html',
   'ht/about/index.html',
   'ht/legal/terms/index.html',
   'ht/legal/privacy/index.html',
+  'ht/account-deletion/index.html',
   '404.html',
 ];
 

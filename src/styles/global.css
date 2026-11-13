@@ -1106,6 +1106,15 @@ p {
   margin-bottom: 28px;
 }
 
+.deletion-cta {
+  margin: 22px 0 12px;
+}
+
+.deletion-cta-note {
+  color: var(--text-2);
+  font-size: 0.95rem;
+}
+
 /* ---------- 404 ---------- */
 .notfound {
   min-height: 62vh;

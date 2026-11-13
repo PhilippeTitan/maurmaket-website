@@ -45,6 +45,19 @@ one too for app-wide rules, but this file is the source of truth for website wor
 
 ## Current status
 
+- **2026-11-11 — Web account-deletion page (built; NOT deployed):** Added the public
+  self-service account-closure information page to the Astro site (`src/pages/account-deletion.astro`
+  + `src/pages/{fr,ht}/account-deletion.astro`, `src/sections/AccountDeletion.astro`). Driven by
+  the app's two-stage deletion flow (request → 7-day hold → finalize; ledger APP-Q013–APP-Q017).
+  EN/FR/HT i18n: `meta.accountDeletionTitle/Desc`, `footer.accountDeletion`, top-level
+  `accountDeletion` group (intro, stage 1/2, export, deleted/kept lists, blockers, cancel,
+  how-to, support) — **130 keys ×3, parity OK, no empties**. Base.astro: page-union member,
+  title/description branch, `/account-deletion/` locale-alternates suffix, footer legal link.
+  `scripts/check-built.mjs`: added the 3 new dist routes (13 → 16). **Verification (this session,
+  all green):** `npm run check` 0/0/0 (25 files; sync:policy OK, check:locales OK — 130 keys ×3 in
+  sync, astro check clean); `npm run build` OK — 16 pages built, `check:built` OK; built EN/FR/HT
+  pages spot-checked (titles, h1s, content, no `undefined`, footer link resolves). No deploy,
+  no commit, no push — deploy and commit each still need Philippe's explicit say-go.
 - **Phase 1 — LIVE (deployed 2026-10-07).** The Astro static site is published at
   https://maurmaket.netlify.app (13 routes: EN/FR/HT home + about + terms + privacy, plus a
   custom 404). Live-verified: every route 200 (404 page returns 404), zero email addresses
@@ -133,10 +146,10 @@ one too for app-wide rules, but this file is the source of truth for website wor
 
 ## Verification (commands, run from this folder)
 
-- `npm run check` — sync policy + locale parity (91 keys ×3) + `astro sync` + `astro check`.
-  Target: **0 errors / 0 warnings / 0 hints** (21 files).
+- `npm run check` — sync policy + locale parity (130 keys ×3) + `astro sync` + `astro check`.
+  Target: **0 errors / 0 warnings / 0 hints** (25 files).
 - `npm run build` — `sync:policy` + `check:locales` (via `prebuild`) → `astro build` →
-  `scripts/check-built.mjs` (verifies 13 dist routes: 12 localized + `404.html`; `<html lang>`
+  `scripts/check-built.mjs` (verifies 16 dist routes: 15 localized + `404.html`; `<html lang>`
   matches path; no `undefined`/`[object Object]`; non-empty `<title>`; internal hrefs resolve).
 - `npm run dev` — Astro dev server (runs `sync:policy` first via `predev`).
 - `npm run preview` — serve `dist/` locally.
@@ -353,3 +366,34 @@ one too for app-wide rules, but this file is the source of truth for website wor
    **Records:** ledger gained a "Deploy / sign-off log (append-only)" block (W6, W7/W7b entries
    including the W-Q8 copy sign-off); this session log and the Current status block updated.
    **No app-repo changes.** Site source state at deploy: `9e52535` == `origin/main`.
+- **2026-11-11 — Session W8 (web account-deletion page, built):** Philippe's task was to finish
+   the web account-deletion page backing the self-service delete-button system (app ledger
+   APP-Q013–APP-Q017, two-stage closure). Implemented: EN/FR/HT copy (39 new keys — 2
+   `meta.accountDeletion*`, 1 `footer.accountDeletion`, 36-key top-level `accountDeletion`
+   group) in `src/i18n/locales/{en,fr,ht}.json`; `src/sections/AccountDeletion.astro`
+   (reuses the `.section/.container/.legal-wrap/.legal-body/.notice` design system);
+   `src/pages/account-deletion.astro`, `src/pages/fr/account-deletion.astro`,
+   `src/pages/ht/account-deletion.astro`; `src/layouts/Base.astro` wiring (page union member,
+   title/description branch, `/account-deletion/` locale-alternates suffix, footer legal link);
+   `scripts/check-built.mjs` expected routes 13 → 16. **Verification (all green):** `npm run
+   check` 0/0/0 (25 files; sync:policy OK, check:locales OK — **130 keys ×3 in sync**, astro
+   check clean); `npm run build` OK — 16 pages built, `check:built` OK (16 routes present, lang
+   correct, internal hrefs resolve); built EN/FR/HT spot-checked (titles/h1s/content correct, no
+   `undefined`, footer account-deletion link present). **No deploy, no commit, no push** —
+   deploy and commit still need Philippe's explicit say-go. The app-repo DeleteAccountScreen
+   and backend closure flow remain the source of truth for what this page describes; the site copy
+   intentionally does not claim the app flow is live beyond describing the agreed two-stage process.
+- **2026-11-11 — Session W8b (deletion CTA + deep link):** Play review requires that the linked
+   deletion URL be *actionable*, not merely descriptive, so the page gained a real entry point.
+   App side: `App.tsx` `processDeepLink` now handles `maurmaket://delete-account` — navigates to
+   `DeleteAccount` when signed in, and registers `pendingDeepLinkType = 'delete-account'` for the
+   cold-start case so the destination survives navigation-container startup (same pattern as
+   `verify` / `reset-password`). No new screen, no params, no backend call; the deletion itself
+   still runs entirely in the app. Site side: `src/sections/AccountDeletion.astro` renders
+   `.deletion-cta` button + `.deletion-cta-note` inside "How to start"; 2 new keys
+   (`accountDeletion.openApp`, `accountDeletion.openAppNote`) × EN/FR/HT, and the HT
+   `howToBody` was corrected to name the "Fèmen kont" step like EN/FR do.
+   **Verification:** `npm run check` 0/0/0 (25 files, **130 keys × 3 in sync**); `npm run build`
+   OK — 16 pages, `check:built` OK (the `maurmaket://` href is correctly not treated as an
+   internal link); built EN/FR/HT inspected — exactly 1 scheme link and **0 email matches** per
+   page (W-Q10 honoured). App-repo `tsc --noEmit` exit 0. **No deploy, no commit, no push.**

@@ -1,0 +1,75 @@
+---
+import type { Locale } from '../i18n';
+import { getStrings, localePath } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getStrings(locale);
+const homePath = localePath(locale, '/');
+---
+
+<section class="section">
+  <div class="container">
+    <div class="legal-wrap">
+      <a class="legal-back" href={homePath}>← {t.legal.backHome}</a>
+      <h1>{t.accountDeletion.title}</h1>
+      <div class="legal-body">
+        <p>{t.accountDeletion.intro}</p>
+
+        <h2>{t.accountDeletion.stageRequestTitle}</h2>
+        <p>{t.accountDeletion.stageRequestBody}</p>
+
+        <h2>{t.accountDeletion.stageFinalTitle}</h2>
+        <p>{t.accountDeletion.stageFinalBody}</p>
+
+        <h2>{t.accountDeletion.exportTitle}</h2>
+        <p>{t.accountDeletion.exportBody}</p>
+
+        <h2>{t.accountDeletion.deletedTitle}</h2>
+        <p>{t.accountDeletion.deletedBody}</p>
+        <ul>
+          <li>{t.accountDeletion.deletedProfile}</li>
+          <li>{t.accountDeletion.deletedListings}</li>
+          <li>{t.accountDeletion.deletedActivity}</li>
+          <li>{t.accountDeletion.deletedSafety}</li>
+        </ul>
+
+        <h2>{t.accountDeletion.keptTitle}</h2>
+        <p>{t.accountDeletion.keptBody}</p>
+        <ul>
+          <li>{t.accountDeletion.keptOrders}</li>
+          <li>{t.accountDeletion.keptChats}</li>
+          <li>{t.accountDeletion.keptLegal}</li>
+        </ul>
+
+        <h2>{t.accountDeletion.blockersTitle}</h2>
+        <p>{t.accountDeletion.blockersBody}</p>
+        <ul>
+          <li>{t.accountDeletion.blockerOrders}</li>
+          <li>{t.accountDeletion.blockerSales}</li>
+          <li>{t.accountDeletion.blockerDisputes}</li>
+          <li>{t.accountDeletion.blockerBalance}</li>
+          <li>{t.accountDeletion.blockerDebts}</li>
+          <li>{t.accountDeletion.blockerPayout}</li>
+        </ul>
+        <p class="notice">{t.accountDeletion.closureBlocked}</p>
+
+        <h2>{t.accountDeletion.cancelTitle}</h2>
+        <p>{t.accountDeletion.cancelBody}</p>
+
+        <h2>{t.accountDeletion.howToTitle}</h2>
+        <p>{t.accountDeletion.howToBody}</p>
+        <p class="deletion-cta">
+          <a class="btn btn-primary btn-lg" href="maurmaket://delete-account">{t.accountDeletion.openApp}</a>
+        </p>
+        <p class="deletion-cta-note">{t.accountDeletion.openAppNote}</p>
+
+        <h2>{t.accountDeletion.supportTitle}</h2>
+        <p>{t.accountDeletion.supportBody}</p>
+      </div>
+    </div>
+  </div>
+</section>
