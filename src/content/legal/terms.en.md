@@ -1,12 +1,12 @@
 ---
 kind: terms
 locale: en
-updated: "2026-10-07"
+updated: "2026-10-31"
 ---
 
 ## 1. Who these terms are for
 
-These terms are an agreement between you and MaurMaket for using the MaurMaket app and any related website. MaurMaket is a marketplace that connects buyers and sellers in Haiti — we do not sell the items ourselves. By creating an account or using the app, you accept these terms. If you do not accept them, do not use MaurMaket.
+These terms are an agreement between you and MaurMaket for using the MaurMaket app and any related website. MaurMaket is a marketplace that connects buyers and sellers in Haiti — we do not sell the items ourselves. By creating an account or using the app, you accept these terms. If you do not accept them, do not use MaurMaket. You must be at least 18 years old to create an account. MaurMaket is not a bank or a payment institution; payments are handled by third-party payment providers.
 
 ## 2. Your account
 
@@ -14,15 +14,15 @@ You need an account to buy or sell. Give accurate information, keep your passwor
 
 ## 3. Buying on MaurMaket
 
-When you place an order, you agree to pay the shown total through the payment method you choose. Meetup orders are paid through MonCash when the meetup plan is confirmed. NatCash orders are paid directly to the seller at the handoff. Stock is reserved for you while an order or meetup plan is being arranged, but a cart alone does not reserve stock.
+When you place an order, you agree to pay the shown total through the payment method you choose. Meetup orders are paid through MonCash when the meetup plan is confirmed. NatCash orders are paid directly to the seller at the handoff. MonCash payments are processed through a third-party payment gateway on the MonCash network, and those providers' own terms apply to their part of the payment. Stock is reserved for you while an order or meetup plan is being arranged, but a cart alone does not reserve stock.
 
 ## 4. Selling on MaurMaket
 
-Sellers must list only items they are allowed to sell, with honest photos, descriptions, prices, and condition. You set your listing cap and commission rate by your seller tier (Casual, Verified, or Business). You are responsible for fulfilling orders you accept, meeting the agreed place and time, and handling returns or issues through MaurMaket support rather than off-platform deals.
+Sellers must list only items they are allowed to sell, with honest photos, descriptions, prices, and condition. Your listing limit and commission rate depend on your seller tier: Verified sellers can have up to 15 active listings at a time, and Business sellers have no listing limit. If a Business subscription ends, the account returns to the Verified tier and listings above the Verified limit are paused, newest first, until there is room. You are responsible for fulfilling orders you accept, meeting the agreed place and time, and handling returns or issues through MaurMaket support rather than off-platform deals.
 
 ## 5. Fees and payments
 
-MaurMaket earns a commission on MonCash orders: 10% for Casual sellers, 8% for Verified sellers, and 5% for Business sellers. MonCash network fees (2.9% on incoming deposits, 5% on withdrawals) are charged by the payment network, not by MaurMaket. NatCash access is an optional paid add-on; no MaurMaket commission is charged on NatCash sales. Prices are shown in Haitian gourdes (HTG).
+MaurMaket earns a commission on MonCash orders: 10% for Verified sellers and 5% for Business sellers. MonCash network fees (2.9% on incoming payments, 5% on withdrawals) are set by the payment network, not by MaurMaket. They are passed on to sellers: the 2.9% is deducted from the seller's proceeds on each MonCash order, and the 5% is added to the amount deducted from the seller's balance when a payout is requested. Commission is calculated on the item price, not on delivery fees. NatCash access is an optional paid add-on; no MaurMaket commission is charged on NatCash sales. Prices are shown in Haitian gourdes (HTG).
 
 ## 6. Meetups and delivery
 
@@ -30,7 +30,7 @@ For meetups, both sides confirm the place, date, and time before the exchange. E
 
 ## 7. Holds, releases, and refunds
 
-On MonCash orders, your payment is held while the seller fulfills the order and is released once the exchange or delivery is confirmed. Refunds are reviewed by MaurMaket support and sent through the original payment method after provider confirmation; a refund is not complete until the payment provider confirms it. NatCash transfers go directly between buyer and seller, and MaurMaket cannot reverse them — support may still mediate a dispute.
+On MonCash orders, your payment is held while the seller fulfills the order and is released once the exchange or delivery is confirmed. Refunds are reviewed by MaurMaket support and sent through the original payment method after provider confirmation; a refund is not complete until the payment provider confirms it. NatCash transfers go directly between buyer and seller, and MaurMaket cannot reverse them — support may still mediate a dispute. Payouts: sellers who have completed identity verification can request a payout of their available balance to the MonCash number saved in their payout settings, in whole gourdes, with a minimum amount (currently G 100) and one payout at a time. Changing the payout number requires your password. If the provider rejects a payout, the reserved amount returns to your balance. When a refund is paid out, the provider's fee is allocated according to the review outcome. If a refund or reversal leaves a seller owing fees, MaurMaket may record the amount as a debt on the seller's account, which the seller can pay from the app.
 
 ## 8. Reviews
 

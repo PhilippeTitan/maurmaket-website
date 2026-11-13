@@ -7,16 +7,12 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getStrings(locale);
-
-// Highlight the last word of the headline ("…across Haiti") with the brand gradient.
-const words = t.hero.title.split(' ');
-const lastWord = words.pop() ?? '';
-const headStart = words.join(' ');
 ---
 
-<section class="hero hero-immersive">
+<!-- HERO: full-bleed, phone cropped by the section edge and faded into the page -->
+<section class="hero">
   <img
-    class="hero-bg"
+    class="hero-photo"
     src="/hero-market-1152.webp"
     alt=""
     width="1152"
@@ -24,30 +20,69 @@ const headStart = words.join(' ');
     fetchpriority="high"
     decoding="async"
   />
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="container hero-immersive-inner">
-    <span class="eyebrow">{t.hero.badge}</span>
-    <h1>{headStart} <span class="grad-text">{lastWord}</span></h1>
-    <p class="hero-lead">{t.hero.lead}</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="#get-app">{t.hero.ctaPrimary}</a>
-      <a class="btn btn-ghost btn-lg" href="#how-it-works">{t.hero.ctaSecondary}</a>
+  <div class="hero-photo-scrim" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="badge"><i class="flag" aria-hidden="true"></i>{t.hero.badge}</p>
+      <h1>{t.hero.title}</h1>
+      <p class="hero-lead">{t.hero.lead}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="#get-app">{t.hero.ctaPrimary}</a>
+        <a class="btn btn-ghost btn-lg" href="#how-it-works">{t.hero.ctaSecondary}</a>
+      </div>
     </div>
-    <div class="hero-pay">
-      <span>{t.download.paymentsTitle}</span>
-      <span class="pay-pill"><img src="/moncash.webp" alt="MonCash" width="96" height="28" decoding="async" /></span>
-      <span class="pay-pill"><img src="/natcash.webp" alt="NatCash" width="96" height="28" decoding="async" /></span>
+
+    <div class="hero-stage" aria-hidden="true">
+      <div class="phone">
+        <div class="ph-top">
+          <img src="/brand-icon-96.webp" alt="" width="96" height="89" />
+          <span class="ph-bar" style="width: 84px"></span>
+          <span class="ph-avatar"></span>
+        </div>
+        <div class="ph-bubble in">
+          <span class="ph-bar" style="width: 132px"></span>
+          <span class="ph-bar" style="width: 78px"></span>
+        </div>
+        <div class="ph-bubble out">2 500 G</div>
+        <div class="ph-card">
+          <span class="ph-bar" style="width: 96px"></span>
+          <div class="ph-pay-row">
+            <span class="pay-pill on"><img src="/moncash.webp" alt="" width="96" height="28" /></span>
+            <span class="pay-pill"><img src="/natcash.webp" alt="" width="96" height="28" /></span>
+          </div>
+        </div>
+        <div class="ph-code">
+          <div class="ph-ok">
+            <span class="tick">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
+            </span>
+            <span class="ph-bar" style="width: 110px"></span>
+          </div>
+          <div class="ph-digits"><span>4</span><span>7</span><span>2</span><span>9</span></div>
+        </div>
+        <div class="ph-bubble in">
+          <span class="ph-bar" style="width: 96px"></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="tagline-strip">
-  <p>Achete • Vann • Negosye</p>
+<!-- Payment rail: one quiet, full-width line directly under the hero -->
+<div class="rail">
+  <div class="container rail-inner">
+    <span class="rail-label">{t.download.paymentsTitle}</span>
+    <span class="pay-pill"><img src="/moncash.webp" alt="MonCash" width="96" height="28" decoding="async" /></span>
+    <span class="pay-pill"><img src="/natcash.webp" alt="NatCash" width="96" height="28" decoding="async" /></span>
+    <span class="rail-slogan">Achete • Vann • Negosye</span>
+  </div>
 </div>
 
-<section class="section discover" aria-labelledby="discover-heading">
+<!-- DISCOVER: four category tiles, the discovery hook right under the hero -->
+<section class="band cv" aria-labelledby="discover-heading">
   <div class="container">
-    <div class="section-head">
+    <div class="band-head">
       <h2 id="discover-heading">{t.discover.heading}</h2>
       <p>{t.discover.sub}</p>
     </div>
@@ -72,41 +107,71 @@ const headStart = words.join(' ');
   </div>
 </section>
 
-<section class="section section-soft" aria-labelledby="features-heading">
+<!-- FEATURES: each row shows the product moment it describes; visuals bleed off the right edge -->
+<section class="band cv" aria-labelledby="features-heading">
   <div class="container">
-    <div class="section-head">
+    <div class="band-head">
       <h2 id="features-heading">{t.features.heading}</h2>
       <p>{t.features.sub}</p>
     </div>
-    <div class="grid grid-3">
-      <article class="card">
-        <div class="icon-bubble" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.6-.8L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5Z" /></svg>
-        </div>
+
+    <div class="row">
+      <div class="row-copy">
         <h3>{t.features.f1Title}</h3>
         <p>{t.features.f1Body}</p>
-      </article>
-      <article class="card">
-        <div class="icon-bubble" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5" /><path d="M3 10.5h18M7 15h4" /></svg>
+      </div>
+      <div class="row-visual" aria-hidden="true">
+        <div class="mock mock-chat">
+          <div class="ph-bubble in"><span class="ph-bar" style="width: 150px"></span><span class="ph-bar" style="width: 96px"></span></div>
+          <div class="ph-bubble out"><span class="ph-bar dark" style="width: 120px"></span></div>
+          <div class="ph-bubble in offer"><span class="offer-label"><span class="ph-bar" style="width: 56px"></span></span><strong>2 500 G</strong></div>
+          <div class="ph-bubble out">OK</div>
         </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-copy">
         <h3>{t.features.f2Title}</h3>
         <p>{t.features.f2Body}</p>
-      </article>
-      <article class="card">
-        <div class="icon-bubble" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z" /><circle cx="12" cy="11" r="2.5" /></svg>
+      </div>
+      <div class="row-visual" aria-hidden="true">
+        <div class="mock mock-pay">
+          <div class="pay-option on">
+            <img src="/moncash.webp" alt="" width="96" height="28" loading="lazy" decoding="async" />
+            <span class="radio"></span>
+          </div>
+          <div class="pay-option">
+            <img src="/natcash.webp" alt="" width="96" height="28" loading="lazy" decoding="async" />
+            <span class="radio"></span>
+          </div>
+          <div class="pay-total"><span class="ph-bar" style="width: 72px"></span><strong>2 500 G</strong></div>
         </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-copy">
         <h3>{t.features.f3Title}</h3>
         <p>{t.features.f3Body}</p>
-      </article>
+      </div>
+      <div class="row-visual" aria-hidden="true">
+        <div class="mock mock-meet">
+          <div class="map">
+            <i class="road r1"></i><i class="road r2"></i><i class="road r3"></i>
+            <svg class="pin" width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-5 7-11.5a7 7 0 1 0-14 0C5 17 12 22 12 22Z" /><circle cx="12" cy="10.5" r="2.6" fill="#0a0712" /></svg>
+          </div>
+          <div class="ph-digits"><span>4</span><span>7</span><span>2</span><span>9</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section story" aria-labelledby="story-heading">
+<!-- STORY: two alternating photo rows — paying and meeting up -->
+<section class="band cv" aria-labelledby="story-heading">
   <div class="container">
-    <div class="section-head">
+    <div class="band-head">
       <h2 id="story-heading">{t.story.heading}</h2>
       <p>{t.story.sub}</p>
     </div>
@@ -131,100 +196,84 @@ const headStart = words.join(' ');
   </div>
 </section>
 
-<section class="section" id="how-it-works" aria-labelledby="steps-heading">
+<!-- HOW IT WORKS: a real sequence, so numbered, on a faded panel -->
+<section class="band band-fade cv" id="how-it-works" aria-labelledby="steps-heading">
   <div class="container">
-    <div class="section-head">
+    <div class="band-head">
       <h2 id="steps-heading">{t.steps.heading}</h2>
       <p>{t.steps.sub}</p>
     </div>
-    <div class="grid grid-3">
-      <article class="card">
+    <ol class="steps">
+      <li>
         <span class="step-num" aria-hidden="true">1</span>
         <h3>{t.steps.s1Title}</h3>
         <p>{t.steps.s1Body}</p>
-      </article>
-      <article class="card">
+      </li>
+      <li>
         <span class="step-num" aria-hidden="true">2</span>
         <h3>{t.steps.s2Title}</h3>
         <p>{t.steps.s2Body}</p>
-      </article>
-      <article class="card">
+      </li>
+      <li>
         <span class="step-num" aria-hidden="true">3</span>
         <h3>{t.steps.s3Title}</h3>
         <p>{t.steps.s3Body}</p>
-      </article>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section class="section section-soft" aria-labelledby="promises-heading">
-  <div class="container">
-    <div class="section-head">
+<!-- PROMISES -->
+<section class="band cv" aria-labelledby="promises-heading">
+  <div class="container split">
+    <div class="split-head">
       <h2 id="promises-heading">{t.about.valuesHeading}</h2>
     </div>
-    <div class="grid grid-3">
+    <div class="promises">
       <div class="promise">
-        <span class="tick" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
-        </span>
-        <div>
-          <h3>{t.about.v1Title}</h3>
-          <p>{t.about.v1Body}</p>
-        </div>
+        <h3>{t.about.v1Title}</h3>
+        <p>{t.about.v1Body}</p>
       </div>
       <div class="promise">
-        <span class="tick" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
-        </span>
-        <div>
-          <h3>{t.about.v2Title}</h3>
-          <p>{t.about.v2Body}</p>
-        </div>
+        <h3>{t.about.v2Title}</h3>
+        <p>{t.about.v2Body}</p>
       </div>
       <div class="promise">
-        <span class="tick" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" /></svg>
-        </span>
-        <div>
-          <h3>{t.about.v3Title}</h3>
-          <p>{t.about.v3Body}</p>
-        </div>
+        <h3>{t.about.v3Title}</h3>
+        <p>{t.about.v3Body}</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section download" id="get-app" aria-labelledby="download-heading">
-  <div class="container">
-    <div class="section-head">
-      <img
-        class="download-logo"
-        src="/brand-icon-512.webp"
-        alt=""
-        width="512"
-        height="473"
-        loading="lazy"
-        decoding="async"
-      />
-      <h2 id="download-heading">{t.download.heading}</h2>
-      <p>{t.download.sub}</p>
+<!-- DOWNLOAD: logo bleeds off the bottom-right corner and fades into the page -->
+<section class="download cv" id="get-app" aria-labelledby="download-heading">
+  <img
+    class="download-art"
+    src="/brand-icon-512.webp"
+    alt=""
+    width="512"
+    height="473"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="container download-inner">
+    <h2 id="download-heading">{t.download.heading}</h2>
+    <p class="download-sub">{t.download.sub}</p>
+    <p class="download-status"><span class="dot" aria-hidden="true"></span>{t.download.status}</p>
+    <p class="download-note">{t.download.statusNote}</p>
+    <div class="pay-row" role="list" aria-label={t.download.paymentsTitle}>
+      <span class="pay-pill" role="listitem">
+        <img src="/moncash.webp" alt="MonCash" width="96" height="28" loading="lazy" decoding="async" />
+      </span>
+      <span class="pay-pill" role="listitem">
+        <img src="/natcash.webp" alt="NatCash" width="96" height="28" loading="lazy" decoding="async" />
+      </span>
     </div>
-    <div style="text-align: center;">
-      <span class="download-status">{t.download.status}</span>
-      <p class="download-note">{t.download.statusNote}</p>
-      <div class="pay-row" role="list" aria-label={t.download.paymentsTitle}>
-        <span class="pay-pill" role="listitem">
-          <img src="/moncash.webp" alt="MonCash" width="96" height="28" loading="lazy" decoding="async" />
-        </span>
-        <span class="pay-pill" role="listitem">
-          <img src="/natcash.webp" alt="NatCash" width="96" height="28" loading="lazy" decoding="async" />
-        </span>
-      </div>
-      <p class="download-note" style="margin-top: 20px; margin-bottom: 0;">{t.download.paymentsNote}</p>
-      <div class="download-support">
-        <h3>{t.download.supportTitle}</h3>
-        <p>{t.download.supportBody}</p>
-      </div>
+    <p class="download-note">{t.download.paymentsNote}</p>
+    <div class="download-support">
+      <h3>{t.download.supportTitle}</h3>
+      <p>{t.download.supportBody}</p>
     </div>
   </div>
 </section>

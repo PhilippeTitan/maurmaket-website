@@ -1,17 +1,17 @@
 ---
 kind: privacy
 locale: en
-updated: "2026-10-07"
+updated: "2026-10-31"
 ---
 
 ## 1. What this notice covers
 
-This notice explains what personal data MaurMaket collects, why we use it, who we share it with, and the controls you have. It applies when you use the MaurMaket app and any related website. It does not cover third-party services you reach through links, such as MonCash or NatCash, which have their own policies.
+This notice explains what personal data MaurMaket collects, why we use it, who we share it with, and the controls you have. It applies when you use the MaurMaket app and any related website. It does not cover third-party services you reach through links, such as MonCash or NatCash, which have their own policies. MaurMaket is only for people aged 18 or over, and your age is checked at signup.
 
 ## 2. What we collect
 
-- **Account data:** name, email, phone number, password (stored only as a secure hash), and the profile details you choose to add, such as bio, avatar, and public username.
-- **Verification data:** for sellers, identity documents (CIN photos) submitted for verification. Documents are checked and then deleted; we keep only the verification result and a limited audit record.
+- **Account data:** name, email, phone number, password (stored only as a secure hash), date of birth (used to confirm you are at least 18), and the profile details you choose to add, such as bio, avatar, and public username.
+- **Verification data:** for sellers, identity documents (front and back photos of your CIN), a selfie, and the details read from the card, such as name, date of birth, and CIN number, submitted for verification and reviewed by a person. Photos are kept in private storage and deleted automatically after 90 days; we keep the verification result and a limited audit record. We also create a numerical face-comparison value from your selfie to detect duplicate accounts, and we record device-integrity signals during verification. These signals help the reviewer and do not decide the outcome on their own.
 - **Transaction data:** orders, items, prices, meetup or delivery details, reviews, payout records, and messages between buyers and sellers.
 - **Technical data:** device and app information needed to run the service, sign-in activity, and push notification tokens.
 - **Optional data:** your location only when you explicitly enable map discovery or use map features; anything you report to support.

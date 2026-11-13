@@ -1,17 +1,17 @@
 ---
 kind: privacy
 locale: fr
-updated: "2026-10-07"
+updated: "2026-10-31"
 ---
 
 ## 1. Ce que couvre cet avis
 
-Cet avis explique quelles données personnelles MaurMaket collecte, pourquoi nous les utilisons, avec qui nous les partageons et les contrôles dont vous disposez. Il s'applique lorsque vous utilisez l'application MaurMaket et tout site associé. Il ne couvre pas les services tiers auxquels vous accédez par des liens, comme MonCash ou NatCash, qui ont leurs propres politiques.
+Cet avis explique quelles données personnelles MaurMaket collecte, pourquoi nous les utilisons, avec qui nous les partageons et les contrôles dont vous disposez. Il s'applique lorsque vous utilisez l'application MaurMaket et tout site associé. Il ne couvre pas les services tiers auxquels vous accédez par des liens, comme MonCash ou NatCash, qui ont leurs propres politiques. MaurMaket est réservé aux personnes de 18 ans ou plus, et votre âge est vérifié à l'inscription.
 
 ## 2. Ce que nous collectons
 
-- **Données de compte :** nom, e-mail, numéro de téléphone, mot de passe (stocké uniquement sous forme de hachage sécurisé) et les informations de profil que vous choisissez d'ajouter, comme biographie, avatar et nom public.
-- **Données de vérification :** pour les vendeurs, les documents d'identité (photos de CIN) soumis pour vérification. Les documents sont contrôlés puis supprimés ; nous conservons uniquement le résultat de vérification et un registre d'audit limité.
+- **Données de compte :** nom, e-mail, numéro de téléphone, mot de passe (stocké uniquement sous forme de hachage sécurisé), date de naissance (utilisée pour confirmer que vous avez au moins 18 ans) et les informations de profil que vous choisissez d'ajouter, comme biographie, avatar et nom public.
+- **Données de vérification :** pour les vendeurs, les documents d'identité (photos recto et verso de la CIN), un selfie et les informations lues sur la carte, comme le nom, la date de naissance et le numéro de CIN, soumis pour vérification et examinés par une personne. Les photos sont conservées dans un stockage privé et supprimées automatiquement après 90 jours ; nous conservons le résultat de vérification et un registre d'audit limité. Nous créons aussi, à partir de votre selfie, une valeur numérique de comparaison faciale pour détecter les comptes en double, et nous enregistrons des signaux d'intégrité de l'appareil pendant la vérification. Ces signaux aident le relecteur et ne décident pas seuls du résultat.
 - **Données de transaction :** commandes, articles, prix, détails de rendez-vous ou de livraison, avis, registres de paiements et messages entre acheteurs et vendeurs.
 - **Données techniques :** informations sur l'appareil et l'application nécessaires au fonctionnement du service, activité de connexion et jetons de notifications push.
 - **Données facultatives :** votre position uniquement si vous activez explicitement la découverte sur la carte ou utilisez les fonctions cartographiques ; tout ce que vous signalez à l'assistance.
